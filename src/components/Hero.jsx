@@ -244,7 +244,7 @@ export default function Hero() {
         }
       `}</style>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={index}
           className="slide-bg"
