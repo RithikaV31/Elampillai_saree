@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+/* Global CSS */
+:root {
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Source Sans 3', sans-serif;
+
+  /* Elampillai Sarees - Heritage Crimson Theme */
+  --background: #fdfaf6;
+  /* 30 30% 98% converted to hex for simplicity or keep hsl */
+  --foreground: #2b231f;
+  /* 20 14% 12% */
+
+  --card: #ffffff;
+  --card-foreground: #2b231f;
+
+  --popover: #ffffff;
+  --popover-foreground: #2b231f;
+
+  /* Primary - Rich Crimson */
+  --primary: #b41e1e;
+  /* 0 72% 41% */
+  --primary-foreground: #ffffff;
+
+  /* Secondary - Warm Beige */
+  --secondary: #f4efe9;
+  /* 35 30% 94% */
+  --secondary-foreground: #2b231f;
+
+  --muted: #f0ece6;
+  /* 35 20% 92% */
+  --muted-foreground: #787068;
+  /* 20 10% 45% */
+
+  /* Accent - Golden */
+  --accent: #d9a021;
+  /* 43 74% 49% */
+  --accent-foreground: #2b231f;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e6ded6;
+  /* 30 15% 88% */
+  --input: #e6ded6;
+  --ring: #b41e1e;
+
+  --radius: 0.5rem;
+
+  /* Custom colors */
+  --crimson: #b41e1e;
+  --crimson-light: #d32f2f;
+  --crimson-dark: #861616;
+  --gold: #d9a021;
+  --gold-light: #eec14b;
+  --cream: #f4ecf5;
+  /* adjusted */
+  --warm-white: #fdfaf6;
+  --charcoal: #2b231f;
+  --success: #166534;
+  --warning: #f59e0b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-secondary);
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  margin-top: 0;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+/* Utilities equivalent */
+.container-custom {
+  max-width: 80rem;
+  /* 7xl equivalent */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--crimson-light);
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.product-card {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s;
+  border: 1px solid var(--border);
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.badge-sale {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.badge-new {
+  background-color: var(--charcoal);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.badge-bestseller {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.price-current {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.price-original {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+  font-size: 0.875rem;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+.section-subtitle {
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Scroll */
+.category-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: categoryLoop 25s linear infinite;
+}
+
+.category-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .category-item {
+    width: 176px;
+    height: 176px;
+  }
+}
+
+@keyframes categoryLoop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Global CSS */
+:root {
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Source Sans 3', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Elampillai Sarees - Heritage Crimson Theme */
+    --background: 30 30% 98%;
+    --foreground: 20 14% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 12%;
+
+    /* Primary - Rich Crimson */
+    --primary: 0 72% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm Beige */
+    --secondary: 35 30% 94%;
+    --secondary-foreground: 20 14% 12%;
+
+    --muted: 35 20% 92%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Accent - Golden */
+    --accent: 43 74% 49%;
+    --accent-foreground: 20 14% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 0 72% 41%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for the design */
+    --crimson: 0 72% 41%;
+    --crimson-light: 0 65% 50%;
+    --crimson-dark: 0 75% 30%;
+    --gold: 43 74% 49%;
+    --gold-light: 45 80% 60%;
+    --cream: 35 40% 96%;
+    --warm-white: 30 30% 98%;
+    --charcoal: 20 14% 12%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 0 72% 41%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 30% 94%;
+    --sidebar-accent-foreground: 20 14% 12%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 0 72% 41%;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 30 30% 96%;
+
+    --card: 20 14% 12%;
+    --card-foreground: 30 30% 96%;
+
+    --popover: 20 14% 12%;
+    --popover-foreground: 30 30% 96%;
+
+    --primary: 0 65% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 14% 18%;
+    --secondary-foreground: 30 30% 96%;
+
+    --muted: 20 14% 18%;
+    --muted-foreground: 30 20% 65%;
+
+    --accent: 43 74% 49%;
+    --accent-foreground: 20 14% 12%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 14% 20%;
+    --input: 20 14% 20%;
+    --ring: 0 65% 50%;
+
+    --sidebar-background: 20 14% 10%;
+    --sidebar-foreground: 30 30% 96%;
+    --sidebar-primary: 0 65% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 14% 18%;
+    --sidebar-accent-foreground: 30 30% 96%;
+    --sidebar-border: 20 14% 20%;
+    --sidebar-ring: 0 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-medium;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+  }
+
+  .product-card {
+    @apply bg-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .badge-sale {
+    @apply bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded;
+  }
+
+  .badge-new {
+    @apply bg-charcoal text-white text-xs font-semibold px-2 py-1 rounded;
+  }
+
+  .badge-bestseller {
+    @apply bg-accent text-accent-foreground text-xs font-semibold px-2 py-1 rounded;
+  }
+
+  .price-current {
+    @apply text-primary font-semibold;
+  }
+
+  .price-original {
+    @apply text-muted-foreground line-through text-sm;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl font-medium text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@keyframes category-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-category-scroll {
+  width: max-content;
+  animation: category-scroll 25s linear infinite;
+}
+
+.category-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: categoryLoop 25s linear infinite;
+}
+
+.category-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .category-item {
+    width: 176px;
+    height: 176px;
+  }
+}
+
+@keyframes categoryLoop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.category-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: categoryLoop 25s linear infinite;
+}
+
+.category-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: none;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .category-item {
+    width: 176px;
+    height: 176px;
+  }
+}
+
+@keyframes categoryLoop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
