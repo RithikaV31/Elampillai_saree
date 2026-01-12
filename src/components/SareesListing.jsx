@@ -3,6 +3,7 @@ import { SlidersHorizontal, ChevronLeft, ChevronRight, Check } from "lucide-reac
 import { useSearchParams } from "react-router-dom";
 import { products as PRODUCTS } from "../data/products";
 import ProductCard from "./ProductCard";
+import sareeBanner from "../assets/banner.png";
 
 const ITEMS_PER_PAGE = 15;
 
@@ -66,23 +67,45 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
         }
 
         .sl-header {
-          background: var(--secondary);
-          padding: 4rem 1rem;
+          background-image: url(${sareeBanner});
+          background-size: cover;
+          background-position: center;
+          padding: 6rem 1rem;
           text-align: center;
           margin-bottom: 3rem;
+          position: relative;
+          color: white;
+          border-radius: 0 0 30px 30px;
+          overflow: hidden;
         }
+
+        .sl-header::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+        }
+
+        .sl-header-content {
+          position: relative;
+          z-index: 2;
+        }
+
         .sl-header h2 {
           font-family: var(--font-secondary);
-          font-size: 3rem;
+          font-size: 3.5rem;
           font-weight: 700;
-          color: var(--primary);
+          color: white;
           margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .sl-header p {
-          font-size: 1.1rem;
-          color: var(--muted-foreground);
+          font-size: 1.2rem;
+          color: rgba(255,255,255,0.95);
           max-width: 600px;
           margin: 0 auto;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .sl-container {
@@ -285,8 +308,10 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
 
       {/* HEADER */}
       <div className="sl-header">
-        <h2>Elampillai Silk Collection</h2>
-        <p>பாரம்பரிய நெசவாளர்களின் அழகு — தரமான Handloom & Powerloom sarees crafted with care</p>
+        <div className="sl-header-content">
+          <h2>Elampillai Silk Collection</h2>
+          <p>பாரம்பரிய நெசவாளர்களின் அழகு — தரமான Handloom & Powerloom sarees crafted with care</p>
+        </div>
       </div>
 
       <div className="sl-container">

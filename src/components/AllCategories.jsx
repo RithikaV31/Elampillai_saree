@@ -2,55 +2,56 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import { ArrowRight } from "lucide-react";
+import bannerImg from "../assets/Home/wedding.jpg";
 
 export default function AllCategories() {
-    // Helper to get image for a category
-    const getImg = (cat) => {
-        const p = products.find((product) => product.category === cat);
-        return p ? p.image : null;
-    };
+  // Helper to get image for a category
+  const getImg = (cat) => {
+    const p = products.find((product) => product.category === cat);
+    return p ? p.image : null;
+  };
 
-    const categories = [
-        {
-            id: "powerloom",
-            name: "Powerloom Sarees",
-            description: "Traditional powerloom sarees with elegant designs.",
-            link: "/sarees",
-            image: getImg("Powerloom"),
-        },
-        {
-            id: "silk-cotton",
-            name: "Silk Cotton Sarees",
-            description: "Lightweight and comfortable silk cotton blends.",
-            link: "/silk-cotton",
-            image: getImg("Silk Cotton"),
-        },
-        {
-            id: "wedding",
-            name: "Wedding Collection",
-            description: "Grand and luxurious sarees for your special day.",
-            link: "/wedding",
-            image: getImg("Wedding"),
-        },
-        {
-            id: "kids",
-            name: "Kids Collection",
-            description: "Traditional wear for the little ones.",
-            link: "/kids",
-            image: getImg("Kids"),
-        },
-        {
-            id: "combo",
-            name: "Combo Offers",
-            description: "Best value packs for gifting and personal use.",
-            link: "/combo",
-            image: getImg("Combo Sarees"),
-        },
-    ];
+  const categories = [
+    {
+      id: "powerloom",
+      name: "Powerloom Sarees",
+      description: "Traditional powerloom sarees with elegant designs.",
+      link: "/sarees",
+      image: getImg("Powerloom"),
+    },
+    {
+      id: "silk-cotton",
+      name: "Silk Cotton Sarees",
+      description: "Lightweight and comfortable silk cotton blends.",
+      link: "/silk-cotton",
+      image: getImg("Silk Cotton"),
+    },
+    {
+      id: "wedding",
+      name: "Wedding Collection",
+      description: "Grand and luxurious sarees for your special day.",
+      link: "/wedding",
+      image: getImg("Wedding"),
+    },
+    {
+      id: "kids",
+      name: "Kids Collection",
+      description: "Traditional wear for the little ones.",
+      link: "/kids",
+      image: getImg("Kids"),
+    },
+    {
+      id: "combo",
+      name: "Combo Offers",
+      description: "Best value packs for gifting and personal use.",
+      link: "/combo",
+      image: getImg("Combo Sarees"),
+    },
+  ];
 
-    return (
-        <div className="categories-page">
-            <style>{`
+  return (
+    <div className="categories-page">
+      <style>{`
         .categories-page {
           padding: 80px 20px;
           background-color: var(--background);
@@ -59,18 +60,48 @@ export default function AllCategories() {
         .cat-header {
           text-align: center;
           margin-bottom: 60px;
+          position: relative;
+          background-image: url(${bannerImg});
+          background-size: cover;
+          background-position: center;
+          height: 350px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
+        
+        .cat-header::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+          z-index: 1;
+        }
+
+        .cat-header-content {
+          position: relative;
+          z-index: 2;
+          padding: 20px;
+        }
+
         .cat-header h1 {
           font-family: var(--font-secondary);
           font-size: 3.5rem;
-          color: var(--primary);
+          color: white;
           margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .cat-header p {
-          color: var(--muted-foreground);
+          color: rgba(255, 255, 255, 0.9);
           font-size: 1.2rem;
           max-width: 600px;
           margin: 0 auto;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
         .cat-grid {
@@ -151,27 +182,29 @@ export default function AllCategories() {
         }
       `}</style>
 
-            <div className="cat-header">
-                <h1>Explore Our Collections</h1>
-                <p>Discover our wide range of traditional categories, from exquisite Silk Cotton to grand Wedding collections.</p>
-            </div>
-
-            <div className="cat-grid">
-                {categories.map((cat) => (
-                    <Link to={cat.link} key={cat.id} className="cat-card">
-                        <div className="cat-image-container">
-                            <img src={cat.image} alt={cat.name} className="cat-image" />
-                        </div>
-                        <div className="cat-content">
-                            <h3 className="cat-title">{cat.name}</h3>
-                            <p className="cat-desc">{cat.description}</p>
-                            <div className="cat-link">
-                                View Collection <ArrowRight size={18} />
-                            </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+      <div className="cat-header">
+        <div className="cat-header-content">
+          <h1>Explore Our Collections</h1>
+          <p>Discover our wide range of traditional categories, from exquisite Silk Cotton to grand Wedding collections.</p>
         </div>
-    );
+      </div>
+
+      <div className="cat-grid">
+        {categories.map((cat) => (
+          <Link to={cat.link} key={cat.id} className="cat-card">
+            <div className="cat-image-container">
+              <img src={cat.image} alt={cat.name} className="cat-image" />
+            </div>
+            <div className="cat-content">
+              <h3 className="cat-title">{cat.name}</h3>
+              <p className="cat-desc">{cat.description}</p>
+              <div className="cat-link">
+                View Collection <ArrowRight size={18} />
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }

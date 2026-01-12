@@ -3,64 +3,65 @@ import { SlidersHorizontal, ChevronLeft, ChevronRight, Check } from "lucide-reac
 import { useSearchParams } from "react-router-dom";
 import { products as PRODUCTS } from "../data/products";
 import ProductCard from "./ProductCard";
+import kidsBanner from "../assets/kids.png";
 
 const ITEMS_PER_PAGE = 15;
 
 export default function KidsListing({ cart, wishlist, onAddToCart, onToggleWishlist }) {
-    const [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-    const [maxPrice, setMaxPrice] = useState(50000);
-    const [categories, setCategories] = useState([]);
-    const [color, setColor] = useState(null);
-    const [occasion, setOccasion] = useState([]);
-    const [page, setPage] = useState(1);
-    const [showFilters, setShowFilters] = useState(false);
+  const [maxPrice, setMaxPrice] = useState(50000);
+  const [categories, setCategories] = useState([]);
+  const [color, setColor] = useState(null);
+  const [occasion, setOccasion] = useState([]);
+  const [page, setPage] = useState(1);
+  const [showFilters, setShowFilters] = useState(false);
 
-    // Initialize filters from URL query params
-    useEffect(() => {
-        const categoryParam = searchParams.get("category");
-        if (categoryParam) {
-            setCategories([categoryParam]);
-            setPage(1);
-        }
-    }, [searchParams]);
+  // Initialize filters from URL query params
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setCategories([categoryParam]);
+      setPage(1);
+    }
+  }, [searchParams]);
 
-    const toggle = (arr, val) =>
-        arr.includes(val) ? arr.filter((i) => i !== val) : [...arr, val];
+  const toggle = (arr, val) =>
+    arr.includes(val) ? arr.filter((i) => i !== val) : [...arr, val];
 
-    const clearAll = () => {
-        setMaxPrice(50000);
-        setCategories([]);
-        setColor(null);
-        setOccasion([]);
-        setPage(1);
-    };
+  const clearAll = () => {
+    setMaxPrice(50000);
+    setCategories([]);
+    setColor(null);
+    setOccasion([]);
+    setPage(1);
+  };
 
-    /* ================= ONLY KIDS PRODUCTS ================= */
-    // Filter for products with specific Kids categories or general 'Kids' category
-    const kidsProducts = PRODUCTS.filter((p) => p.category === "Kids" || p.category === "Pattu Pavadai" || p.category === "Kids Silk");
+  /* ================= ONLY KIDS PRODUCTS ================= */
+  // Filter for products with specific Kids categories or general 'Kids' category
+  const kidsProducts = PRODUCTS.filter((p) => p.category === "Kids" || p.category === "Pattu Pavadai" || p.category === "Kids Silk");
 
-    /* ================= FILTER ================= */
-    const filtered = kidsProducts.filter((p) => {
-        if (p.price > maxPrice) return false;
-        if (categories.length && !categories.includes(p.category)) return false;
-        // FIXED: Use includes for partial match
-        if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false;
-        if (occasion.length && !occasion.includes(p.occasion)) return false;
-        return true;
-    });
+  /* ================= FILTER ================= */
+  const filtered = kidsProducts.filter((p) => {
+    if (p.price > maxPrice) return false;
+    if (categories.length && !categories.includes(p.category)) return false;
+    // FIXED: Use includes for partial match
+    if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false;
+    if (occasion.length && !occasion.includes(p.occasion)) return false;
+    return true;
+  });
 
-    /* ================= PAGINATION ================= */
-    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  /* ================= PAGINATION ================= */
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
 
-    const paginated = filtered.slice(
-        (page - 1) * ITEMS_PER_PAGE,
-        page * ITEMS_PER_PAGE
-    );
+  const paginated = filtered.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
 
-    return (
-        <div className="sl-page">
-            <style>{`
+  return (
+    <div className="sl-page">
+      <style>{`
         .sl-page {
           background-color: var(--background);
           color: var(--foreground);
@@ -68,23 +69,45 @@ export default function KidsListing({ cart, wishlist, onAddToCart, onToggleWishl
         }
 
         .sl-header {
-          background: #fff0f5; /* Lighter pink for kids */
-          padding: 4rem 1rem;
+          background-image: url(${kidsBanner});
+          background-size: cover;
+          background-position: center;
+          padding: 6rem 1rem;
           text-align: center;
           margin-bottom: 3rem;
+          position: relative;
+          color: white;
+          border-radius: 0 0 30px 30px; /* Rounded bottom */
+          overflow: hidden;
         }
+        
+        .sl-header::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+        }
+        
+        .sl-header-content {
+           position: relative;
+           z-index: 2;
+        }
+
         .sl-header h2 {
           font-family: var(--font-secondary);
-          font-size: 3rem;
+          font-size: 3.5rem;
           font-weight: 700;
-          color: #db2777; /* Pink-600 */
+          color: white;
           margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .sl-header p {
-          font-size: 1.1rem;
-          color: var(--muted-foreground);
+          font-size: 1.2rem;
+          color: rgba(255,255,255,0.95);
           max-width: 600px;
           margin: 0 auto;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .sl-container {
@@ -285,165 +308,167 @@ export default function KidsListing({ cart, wishlist, onAddToCart, onToggleWishl
         }
       `}</style>
 
-            {/* HEADER */}
-            <div className="sl-header">
-                <h2>Little Princess Collection</h2>
-                <p>Adorable and traditional Pattu Pavadai and Silk Sarees for kids.</p>
-            </div>
-
-            <div className="sl-container">
-
-                {/* FILTERS SIDEBAR */}
-                <aside className={`sl-filter ${showFilters ? "open" : ""}`}>
-                    <div className="filter-header">
-                        <h3 className="filter-title"><SlidersHorizontal size={18} /> Filters</h3>
-                        <span className="sl-clear" onClick={() => { clearAll(); setShowFilters(false); }}>Clear All</span>
-                        {showFilters && <span onClick={() => setShowFilters(false)} style={{ marginLeft: "auto", padding: 8, cursor: "pointer" }}>✕</span>}
-                    </div>
-
-                    <div className="filter-group">
-                        <p className="group-title">Price Range</p>
-                        <input
-                            type="range"
-                            className="price-range"
-                            min="500"
-                            max="50000"
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(+e.target.value)}
-                        />
-                        <div className="price-labels">
-                            <span>₹500</span>
-                            <span>₹{maxPrice.toLocaleString()}</span>
-                        </div>
-                    </div>
-
-                    <div className="filter-group">
-                        <p className="group-title">Category</p>
-                        {["Kids", "Pattu Pavadai", "Kids Silk"].map((c) => (
-                            <label key={c} className="checkbox-label">
-                                <input
-                                    type="checkbox"
-                                    hidden
-                                    checked={categories.includes(c)}
-                                    onChange={() => setCategories(toggle(categories, c))}
-                                />
-                                <div className="checkbox-custom">
-                                    {categories.includes(c) && <Check size={12} color="white" />}
-                                </div>
-                                <span>{c}</span>
-                            </label>
-                        ))}
-                    </div>
-
-                    <div className="filter-group">
-                        <p className="group-title">Filter by Color</p>
-                        <div className="color-grid">
-                            {[
-                                { name: "red", hex: "#ef4444" },
-                                { name: "blue", hex: "#3b82f6" },
-                                { name: "green", hex: "#22c55e" },
-                                { name: "yellow", hex: "#eab308" },
-                                { name: "purple", hex: "#a855f7" },
-                                { name: "pink", hex: "#ec4899" },
-                                { name: "orange", hex: "#f97316" },
-                                { name: "gold", hex: "#d4af37" },
-                                { name: "silver", hex: "#c0c0c0" },
-                                { name: "black", hex: "#000000" },
-                                { name: "white", hex: "#ffffff" },
-                                { name: "gray", hex: "#6b7280" },
-                                { name: "teal", hex: "#14b8a6" },
-                                { name: "cream", hex: "#fdfbf7" },
-                                { name: "mustard", hex: "#d97706" },
-                                { name: "maroon", hex: "#7f1d1d" },
-                                { name: "peach", hex: "#fdba74" },
-                                { name: "multi", hex: "linear-gradient(45deg, red, yellow, blue)" },
-                            ].map((c) => (
-                                <div
-                                    key={c.name}
-                                    className={`color-dot ${color === c.name ? "active" : ""}`}
-                                    style={{ background: c.hex }}
-                                    onClick={() => setColor(color === c.name ? null : c.name)}
-                                    title={c.name}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="filter-group">
-                        <p className="group-title">Occasion</p>
-                        {[...new Set(kidsProducts.map(p => p.occasion))].filter(Boolean).map((o) => (
-                            <label key={o} className="checkbox-label">
-                                <input
-                                    type="checkbox"
-                                    hidden
-                                    checked={occasion.includes(o)}
-                                    onChange={() => setOccasion(toggle(occasion, o))}
-                                />
-                                <div className="checkbox-custom">
-                                    {occasion.includes(o) && <Check size={12} color="white" />}
-                                </div>
-                                <span>{o}</span>
-                            </label>
-                        ))}
-                    </div>
-                </aside>
-
-                {/* MAIN CONTENT AREA */}
-                <div>
-                    {/* MOBILE FILTER TOGGLE */}
-                    <div className="results-info">
-                        <button className="toggle-filter-btn" onClick={() => setShowFilters(true)}>
-                            <SlidersHorizontal size={18} /> Filters
-                        </button>
-                        <span>Showing {filtered.length} products</span>
-                    </div>
-
-                    {/* PRODUCTS GRID */}
-                    <section className="sl-grid">
-                        {paginated.length > 0 ? (
-                            paginated.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    onAddToCart={onAddToCart}
-                                    onToggleWishlist={onToggleWishlist}
-                                    isWishlisted={wishlist.some((w) => w.id === product.id)}
-                                    isInCart={cart.some((c) => c.id === product.id)}
-                                />
-                            ))
-                        ) : (
-                            <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "4rem" }}>
-                                <h3>No products found in Kids collection yet!</h3>
-                                <p style={{ color: "var(--muted-foreground)" }}>Please check back later.</p>
-                            </div>
-                        )}
-                    </section>
-
-                    {/* PAGINATION */}
-                    {totalPages > 1 && (
-                        <div className="pagination">
-                            <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>
-                                <ChevronLeft size={20} />
-                            </button>
-
-                            {[...Array(totalPages)].map((_, i) => (
-                                <button
-                                    key={i}
-                                    className={`page-btn ${page === i + 1 ? "active" : ""}`}
-                                    onClick={() => setPage(i + 1)}
-                                >
-                                    {i + 1}
-                                </button>
-                            ))}
-
-                            <button className="page-btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
-                                <ChevronRight size={20} />
-                            </button>
-                        </div>
-                    )}
-                </div>
-
-            </div>
+      {/* HEADER */}
+      <div className="sl-header">
+        <div className="sl-header-content">
+          <h2>Little Princess Collection</h2>
+          <p>Adorable and traditional Pattu Pavadai and Silk Sarees for kids.</p>
         </div>
-    );
+      </div>
+
+      <div className="sl-container">
+
+        {/* FILTERS SIDEBAR */}
+        <aside className={`sl-filter ${showFilters ? "open" : ""}`}>
+          <div className="filter-header">
+            <h3 className="filter-title"><SlidersHorizontal size={18} /> Filters</h3>
+            <span className="sl-clear" onClick={() => { clearAll(); setShowFilters(false); }}>Clear All</span>
+            {showFilters && <span onClick={() => setShowFilters(false)} style={{ marginLeft: "auto", padding: 8, cursor: "pointer" }}>✕</span>}
+          </div>
+
+          <div className="filter-group">
+            <p className="group-title">Price Range</p>
+            <input
+              type="range"
+              className="price-range"
+              min="500"
+              max="50000"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(+e.target.value)}
+            />
+            <div className="price-labels">
+              <span>₹500</span>
+              <span>₹{maxPrice.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <p className="group-title">Category</p>
+            {["Kids", "Pattu Pavadai", "Kids Silk"].map((c) => (
+              <label key={c} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  hidden
+                  checked={categories.includes(c)}
+                  onChange={() => setCategories(toggle(categories, c))}
+                />
+                <div className="checkbox-custom">
+                  {categories.includes(c) && <Check size={12} color="white" />}
+                </div>
+                <span>{c}</span>
+              </label>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <p className="group-title">Filter by Color</p>
+            <div className="color-grid">
+              {[
+                { name: "red", hex: "#ef4444" },
+                { name: "blue", hex: "#3b82f6" },
+                { name: "green", hex: "#22c55e" },
+                { name: "yellow", hex: "#eab308" },
+                { name: "purple", hex: "#a855f7" },
+                { name: "pink", hex: "#ec4899" },
+                { name: "orange", hex: "#f97316" },
+                { name: "gold", hex: "#d4af37" },
+                { name: "silver", hex: "#c0c0c0" },
+                { name: "black", hex: "#000000" },
+                { name: "white", hex: "#ffffff" },
+                { name: "gray", hex: "#6b7280" },
+                { name: "teal", hex: "#14b8a6" },
+                { name: "cream", hex: "#fdfbf7" },
+                { name: "mustard", hex: "#d97706" },
+                { name: "maroon", hex: "#7f1d1d" },
+                { name: "peach", hex: "#fdba74" },
+                { name: "multi", hex: "linear-gradient(45deg, red, yellow, blue)" },
+              ].map((c) => (
+                <div
+                  key={c.name}
+                  className={`color-dot ${color === c.name ? "active" : ""}`}
+                  style={{ background: c.hex }}
+                  onClick={() => setColor(color === c.name ? null : c.name)}
+                  title={c.name}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <p className="group-title">Occasion</p>
+            {[...new Set(kidsProducts.map(p => p.occasion))].filter(Boolean).map((o) => (
+              <label key={o} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  hidden
+                  checked={occasion.includes(o)}
+                  onChange={() => setOccasion(toggle(occasion, o))}
+                />
+                <div className="checkbox-custom">
+                  {occasion.includes(o) && <Check size={12} color="white" />}
+                </div>
+                <span>{o}</span>
+              </label>
+            ))}
+          </div>
+        </aside>
+
+        {/* MAIN CONTENT AREA */}
+        <div>
+          {/* MOBILE FILTER TOGGLE */}
+          <div className="results-info">
+            <button className="toggle-filter-btn" onClick={() => setShowFilters(true)}>
+              <SlidersHorizontal size={18} /> Filters
+            </button>
+            <span>Showing {filtered.length} products</span>
+          </div>
+
+          {/* PRODUCTS GRID */}
+          <section className="sl-grid">
+            {paginated.length > 0 ? (
+              paginated.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={onAddToCart}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.some((w) => w.id === product.id)}
+                  isInCart={cart.some((c) => c.id === product.id)}
+                />
+              ))
+            ) : (
+              <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "4rem" }}>
+                <h3>No products found in Kids collection yet!</h3>
+                <p style={{ color: "var(--muted-foreground)" }}>Please check back later.</p>
+              </div>
+            )}
+          </section>
+
+          {/* PAGINATION */}
+          {totalPages > 1 && (
+            <div className="pagination">
+              <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>
+                <ChevronLeft size={20} />
+              </button>
+
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  className={`page-btn ${page === i + 1 ? "active" : ""}`}
+                  onClick={() => setPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button className="page-btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          )}
+        </div>
+
+      </div>
+    </div>
+  );
 }

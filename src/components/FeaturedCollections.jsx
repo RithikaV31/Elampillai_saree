@@ -1,23 +1,36 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 /* ✅ IMPORT IMAGES */
-import weddingImg from "../assets/Home/wedding.jpg";
-import festiveImg from "../assets/Home/Festival.jpg";
-import officeImg from "../assets/Home/office.jpg";
+/* ✅ IMPORT IMAGES */
+// Wedding
+import w1 from "../assets/Wedding/BGR1.jpeg";
+import w2 from "../assets/Wedding/BGR2.jpeg";
+import w3 from "../assets/Wedding/BGR3.jpeg";
+
+// Festival
+import f1 from "../assets/Festival/F1.jpeg";
+import f2 from "../assets/Festival/F2.jpeg";
+import f3 from "../assets/Festival/F3.jpeg";
+
+// Office
+import o1 from "../assets/Cotton/BM1.jpeg";
+import o2 from "../assets/Cotton/BM2.jpeg";
+import o3 from "../assets/Cotton/BM3.jpeg";
 
 const collections = [
   {
-    image: weddingImg,
+    images: [w1, w2, w3],
     tag: "Premium",
     title: "Wedding Collection",
     description: "Luxurious sarees for your big day",
     large: true,
-    link: "/sarees",
+    link: "/wedding",
   },
   {
-    image: festiveImg,
+    images: [f1, f2, f3],
     tag: "Trending",
     title: "Festive Collection",
     description: "Celebrate in style",
@@ -25,17 +38,27 @@ const collections = [
     link: "/sarees",
   },
   {
-    image: officeImg,
+    images: [o1, o2, o3],
     tag: "New",
     title: "Set Sarees",
     description: "Professional elegance",
     large: false,
-    link: "/sarees",
+    link: "/silk-cotton",
   },
 ];
 
 function FeaturedCollections() {
   const navigate = useNavigate();
+  const [currentIndices, setCurrentIndices] = useState(collections.map(() => 0));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndices((prev) =>
+        prev.map((idx, i) => (idx + 1) % collections[i].images.length)
+      );
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="featured-section">
@@ -178,7 +201,18 @@ function FeaturedCollections() {
             transition={{ delay: index * 0.1 }}
             onClick={() => navigate(item.link)}
           >
-            <img src={item.image} alt={item.title} className="card-bg" />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentIndices[index]}
+                src={item.images[currentIndices[index]]}
+                alt={item.title}
+                className="card-bg"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              />
+            </AnimatePresence>
             <div className="card-overlay">
               <span className="card-tag">{item.tag}</span>
               <h3 className="card-title">{item.title}</h3>
