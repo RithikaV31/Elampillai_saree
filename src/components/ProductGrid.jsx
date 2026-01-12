@@ -101,7 +101,8 @@ function ProductGrid({
         <div className="section-header">
           <h2 className="section-title">New Arrivals</h2>
           <p className="section-subtitle">
-            Handpicked sarees fresh from the looms. Experience the latest trends blended with timeless tradition.
+            காலம் மாறினாலும், நூலில் நெசவான பாரம்பரியம் மாறாது.
+எலம்பிள்ளை சேலை — மரபின் மணம், அழகின் முகவரி.
           </p>
         </div>
 

@@ -208,9 +208,9 @@ export default function Hero() {
           transition: all 0.3s;
         }
         .btn-hero-secondary:hover {
-          background: white;
-          color: black;
-          border-color: white;
+          background: #25D366;
+          color: white;
+          border-color: #25D366;
         }
 
         .indicators {

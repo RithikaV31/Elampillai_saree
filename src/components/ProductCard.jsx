@@ -181,7 +181,7 @@ export default function ProductCard({
           padding: 12px;
           border-radius: 8px;
           border: none;
-          background: #ca8a04; /* Gold accent color */
+          background: #22c55e; /* Green color */
           color: white;
           font-weight: 600;
           cursor: pointer;
@@ -192,7 +192,7 @@ export default function ProductCard({
           transition: background 0.2s, transform 0.2s;
         }
         .buy-now-btn:hover {
-          background: #b47b03;
+          background: #16a34a;
           transform: translateY(-2px);
         }
         @media (max-width: 768px) {
