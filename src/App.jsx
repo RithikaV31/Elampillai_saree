@@ -29,6 +29,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import FloatingContacts from "./components/FloatingContacts";
 
 import { products } from "./data/products";
+import AllCategories from "./components/AllCategories";
+import SilkCottonListing from "./components/SilkCottonListing";
+import WeddingListing from "./components/WeddingListing";
 
 /* GLOBAL STYLES COMPONENT */
 const GlobalStyles = () => (
@@ -255,6 +258,34 @@ function App() {
           path="/sarees"
           element={
             <SareesListing
+              cart={cart}
+              wishlist={wishlist}
+              onAddToCart={addToCart}
+              onToggleWishlist={toggleWishlist}
+            />
+          }
+        />
+
+        {/* ALL CATEGORIES */}
+        <Route path="/categories" element={<AllCategories />} />
+
+        {/* MISSING CATEGORIES */}
+        <Route
+          path="/silk-cotton"
+          element={
+            <SilkCottonListing
+              cart={cart}
+              wishlist={wishlist}
+              onAddToCart={addToCart}
+              onToggleWishlist={toggleWishlist}
+            />
+          }
+        />
+
+        <Route
+          path="/wedding"
+          element={
+            <WeddingListing
               cart={cart}
               wishlist={wishlist}
               onAddToCart={addToCart}

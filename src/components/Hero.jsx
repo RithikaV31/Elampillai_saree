@@ -133,6 +133,7 @@ export default function Hero() {
           font-family: 'Cinzel', serif; /* Cinematic/Story Title */
           font-size: 4rem;
           line-height: 1.1;
+          color:  #f3da9bff !important;
           margin-bottom: 1.5rem;
           max-width: 900px;
           text-shadow: 2px 2px 8px rgba(0,0,0,0.5);

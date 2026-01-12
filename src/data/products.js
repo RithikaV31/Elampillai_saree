@@ -81,7 +81,234 @@ import p20_1 from "../assets/SilkCotton/SilverMaron.jpeg";
 import p20_2 from "../assets/SilkCotton/SilverMaronn.jpeg";
 import p20_3 from "../assets/SilkCotton/SilverMaronnn.jpeg";
 
-// ===== COMBO DATA =====
+// ===== KIDS DATA =====
+
+import p21_1 from "../assets/Kids/Gray.jpeg";
+import p21_2 from "../assets/Kids/G1.jpeg";
+import p21_3 from "../assets/Kids/G2.jpeg";
+
+import p22_1 from "../assets/Kids/Maron.jpeg";
+import p22_2 from "../assets/Kids/M1.jpeg";
+import p22_3 from "../assets/Kids/M2.jpeg";
+
+import p23_1 from "../assets/Kids/LMaron.jpeg";
+import p23_2 from "../assets/Kids/LM1.jpeg";
+import p23_3 from "../assets/Kids/M2.jpeg";
+
+import p24_1 from "../assets/Kids/SBlue.jpeg";
+import p24_2 from "../assets/Kids/SB1.jpeg";
+import p24_3 from "../assets/Kids/S1.jpeg";
+
+import p25_1 from "../assets/Kids/Silver.jpeg";
+import p25_2 from "../assets/Kids/S1.jpeg";
+import p25_3 from "../assets/Kids/Yellow1.jpeg";
+
+import p26_1 from "../assets/Kids/Yellow.jpeg";
+import p26_2 from "../assets/Kids/Y1.jpeg";
+import p26_3 from "../assets/Kids/Y2.jpeg";
+
+import p27_1 from "../assets/Kids/Violet.jpeg";
+import p27_2 from "../assets/Kids/V1.jpeg";
+import p27_3 from "../assets/Kids/S1.jpeg";
+
+// ===== WEDDING DATA =====
+
+import p28_1 from "../assets/Wedding/B1.jpeg";
+import p28_2 from "../assets/Wedding/B2.jpeg";
+import p28_3 from "../assets/Wedding/B3.jpeg";
+
+import p29_1 from "../assets/Wedding/G1.jpeg";
+import p29_2 from "../assets/Wedding/G2.jpeg";
+import p29_3 from "../assets/Wedding/G3.jpeg";
+
+import p30_1 from "../assets/Wedding/P1.jpeg";
+import p30_2 from "../assets/Wedding/P2.jpeg";
+import p30_3 from "../assets/Wedding/P3.jpeg";
+
+import p31_1 from "../assets/Wedding/R1.jpeg";
+import p31_2 from "../assets/Wedding/R2.jpeg";
+import p31_3 from "../assets/Wedding/R3.jpeg";
+
+import p32_1 from "../assets/Wedding/O1.jpeg";
+import p32_2 from "../assets/Wedding/O2.jpeg";
+import p32_3 from "../assets/Wedding/O3.jpeg";
+
+import p33_1 from "../assets/Wedding/Y1.jpeg";
+import p33_2 from "../assets/Wedding/Y2.jpeg";
+import p33_3 from "../assets/Wedding/Y3.jpeg";
+
+import p34_1 from "../assets/Wedding/V1.jpeg";
+import p34_2 from "../assets/Wedding/V2.jpeg";
+import p34_3 from "../assets/Wedding/V3.jpeg";
+
+import p35_1 from "../assets/Wedding/DB1.jpeg";
+import p35_2 from "../assets/Wedding/DB2.jpeg";
+import p35_3 from "../assets/Wedding/DB3.jpeg";
+
+import p36_1 from "../assets/Wedding/BGR1.jpeg";
+import p36_2 from "../assets/Wedding/BGR2.jpeg";
+import p36_3 from "../assets/Wedding/BGR3.jpeg";
+
+// ===== Cotton Data =====
+
+import p37_1 from "../assets/Cotton/BM1.jpeg";
+import p37_2 from "../assets/Cotton/BM2.jpeg";
+import p37_3 from "../assets/Cotton/BM3.jpeg"; 
+
+import p38_1 from "../assets/Cotton/G1.jpeg";
+import p38_2 from "../assets/Cotton/G2.jpeg";
+import p38_3 from "../assets/Cotton/G3.jpeg"; 
+
+import p39_1 from "../assets/Cotton/GM1.jpeg";
+import p39_2 from "../assets/Cotton/GM2.jpeg";
+import p39_3 from "../assets/Cotton/GM3.jpeg"; 
+
+import p40_1 from "../assets/Cotton/P1.jpeg";
+import p40_2 from "../assets/Cotton/P2.jpeg";
+import p40_3 from "../assets/Cotton/P3.jpeg"; 
+
+import p41_1 from "../assets/Cotton/PP1.jpeg";
+import p41_2 from "../assets/Cotton/PP2.jpeg";
+import p41_3 from "../assets/Cotton/PP3.jpeg"; 
+
+import p42_1 from "../assets/Cotton/WR1.jpeg";
+import p42_2 from "../assets/Cotton/WR2.jpeg";
+import p42_3 from "../assets/Cotton/WR3.jpeg"; 
+
+import p43_1 from "../assets/Cotton/OP1.jpeg";
+import p43_2 from "../assets/Cotton/OP2.jpeg";
+import p43_3 from "../assets/Cotton/P2.jpeg"; 
+
+import p44_1 from "../assets/Cotton/OR1.jpeg";
+import p44_2 from "../assets/Cotton/OR2.jpeg";
+import p44_3 from "../assets/Cotton/WR3.jpeg"; 
+
+// ===== Festival Data =====
+
+import p45_1 from "../assets/Festival/F1.jpeg";
+import p45_2 from "../assets/Festival/F2.jpeg";
+import p45_3 from "../assets/Festival/F3.jpeg";
+
+import p46_1 from "../assets/Festival/W1.jpeg";
+import p46_2 from "../assets/Festival/W2.jpeg";
+import p46_3 from "../assets/Festival/W3.jpeg";
+
+import p47_1 from "../assets/Festival/W11.jpeg";
+import p47_2 from "../assets/Festival/W12.jpeg";
+import p47_3 from "../assets/Festival/W13.jpeg";
+
+import p48_1 from "../assets/Festival/W21.jpeg";
+import p48_2 from "../assets/Festival/W22.jpeg";
+import p48_3 from "../assets/Festival/W23.jpeg";
+
+import p49_1 from "../assets/Festival/W31.jpeg";
+import p49_2 from "../assets/Festival/W32.jpeg";
+import p49_3 from "../assets/Festival/W33.jpeg";
+
+// ===== HANDLOOM DATA =====
+
+import p50_1 from "../assets/Handloom/GP1.jpeg";
+import p50_2 from "../assets/Handloom/GP2.jpeg";
+import p50_3 from "../assets/Handloom/GP3.jpeg";
+
+import p51_1 from "../assets/Handloom/LG1.jpeg";
+import p51_2 from "../assets/Handloom/LG2.jpeg";
+import p51_3 from "../assets/Handloom/LG3.jpeg";
+
+import p52_1 from "../assets/Handloom/PG1.jpeg";
+import p52_2 from "../assets/Handloom/PG2.jpeg";
+import p52_3 from "../assets/Handloom/PG3.jpeg";
+
+import p53_1 from "../assets/Handloom/PW1.jpeg";
+import p53_2 from "../assets/Handloom/PW2.jpeg";
+import p53_3 from "../assets/Handloom/PW3.jpeg";
+
+import p54_1 from "../assets/Handloom/SP1.jpeg";
+import p54_2 from "../assets/Handloom/SP2.jpeg";
+import p54_3 from "../assets/Handloom/SP3.jpeg";
+
+import p55_1 from "../assets/Handloom/WM1.jpeg";
+import p55_2 from "../assets/Handloom/WM2.jpeg";
+import p55_3 from "../assets/Handloom/WM3.jpeg";
+
+import p56_1 from "../assets/Handloom/WP1.jpeg";
+import p56_2 from "../assets/Handloom/WP2.jpeg";
+import p56_3 from "../assets/Handloom/WP3.jpeg";
+
+import p57_1 from "../assets/Handloom/WR1.jpeg";
+import p57_2 from "../assets/Handloom/WR2.jpeg";
+import p57_3 from "../assets/Handloom/WR3.jpeg";
+
+// ===== NEW ARRIVALS DATA =====
+
+import p58_1 from "../assets/NewArrivals/B1.jpeg";
+import p58_2 from "../assets/NewArrivals/B2.jpeg";
+import p58_3 from "../assets/NewArrivals/B3.jpeg";
+
+import p59_1 from "../assets/NewArrivals/G1.jpeg";
+import p59_2 from "../assets/NewArrivals/G2.jpeg";
+import p59_3 from "../assets/NewArrivals/G3.jpeg";
+
+import p60_1 from "../assets/NewArrivals/GB1.jpeg";
+import p60_2 from "../assets/NewArrivals/GB2.jpeg";
+import p60_3 from "../assets/NewArrivals/GB3.jpeg";
+
+import p61_1 from "../assets/NewArrivals/GG1.jpeg";
+import p61_2 from "../assets/NewArrivals/GG2.jpeg";
+import p61_3 from "../assets/NewArrivals/GG3.jpeg";
+
+import p62_1 from "../assets/NewArrivals/M1.jpeg";
+import p62_2 from "../assets/NewArrivals/M2.jpeg";
+import p62_3 from "../assets/NewArrivals/M3.jpeg";
+
+import p63_1 from "../assets/NewArrivals/O1.jpeg";
+import p63_2 from "../assets/NewArrivals/O2.jpeg";
+import p63_3 from "../assets/NewArrivals/O3.jpeg";
+
+import p64_1 from "../assets/NewArrivals/P1.jpeg";
+import p64_2 from "../assets/NewArrivals/P2.jpeg";
+import p64_3 from "../assets/NewArrivals/P3.jpeg";
+
+import p65_1 from "../assets/NewArrivals/PP1.jpeg";
+import p65_2 from "../assets/NewArrivals/PP2.jpeg";
+import p65_3 from "../assets/NewArrivals/PP3.jpeg";
+
+import p66_1 from "../assets/NewArrivals/PS1.jpeg";
+import p66_2 from "../assets/NewArrivals/PS2.jpeg";
+import p66_3 from "../assets/NewArrivals/PS3.jpeg";
+
+import p67_1 from "../assets/NewArrivals/SB1.jpeg";
+import p67_2 from "../assets/NewArrivals/SB2.jpeg";
+import p67_3 from "../assets/NewArrivals/SB3.jpeg";
+
+import p68_1 from "../assets/NewArrivals/SP1.jpeg";
+import p68_2 from "../assets/NewArrivals/SP2.jpeg";
+import p68_3 from "../assets/NewArrivals/SP3.jpeg";
+
+import p69_1 from "../assets/NewArrivals/V1.jpeg";
+import p69_2 from "../assets/NewArrivals/V2.jpeg";
+import p69_3 from "../assets/NewArrivals/V3.jpeg";
+
+// ===== DAILY WEAR DATA =====
+
+import p70_1 from "../assets/DailyWear/B1.jpeg";
+import p70_2 from "../assets/DailyWear/B2.jpeg";
+import p70_3 from "../assets/DailyWear/B3.jpeg";
+
+import p71_1 from "../assets/DailyWear/G1.jpeg";
+import p71_2 from "../assets/DailyWear/G2.jpeg";
+import p71_3 from "../assets/DailyWear/G3.jpeg";
+
+import p72_1 from "../assets/DailyWear/R1.jpeg";
+import p72_2 from "../assets/DailyWear/R2.jpeg";
+import p72_3 from "../assets/DailyWear/R3.jpeg";
+
+
+
+
+
+
+// ===== COMBO DATA ===== 
 
 import p01_1 from "../assets/Combo/BlueDBlue_combo.jpeg";
 import p01_2 from "../assets/Combo/DBlue_combo.jpeg";
@@ -1051,8 +1278,10 @@ export const products = [
       "Classic maroon silk saree with rich green borders and intricate golden zari weaving. Perfect for weddings and traditional celebrations.",
     inStock: true,
   },
+
+  // KIDS
   {
-    id: 34,
+    id: 47,
     name: "Kids Pattu Pavadai - Pink & Green",
     category: "Kids",
     color: "Pink Green",
@@ -1060,8 +1289,8 @@ export const products = [
     price: 850,
     originalPrice: 1200,
     discount: 30,
-    image: p013_1, // Reusing existing image as placeholder
-    images: [p013_1, p013_2, p013_3],
+    image: p21_1, // Reusing existing image as placeholder
+    images: [p21_1, p21_2, p21_3],
     badge: "New",
     rating: 4.8,
     reviews: 12,
@@ -1069,7 +1298,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: 35,
+    id: 48,
     name: "Kids Silk Frock - Blue & Gold",
     category: "Kids",
     color: "Blue Gold",
@@ -1077,8 +1306,8 @@ export const products = [
     price: 950,
     originalPrice: 1400,
     discount: 32,
-    image: p018_1,
-    images: [p018_1, p018_2, p018_3],
+    image: p22_1,
+    images: [p22_1, p22_2, p22_3],
     badge: "Trending",
     rating: 4.9,
     reviews: 18,
@@ -1086,7 +1315,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: 36,
+    id: 49,
     name: "Kids Lehenga - Red & Yellow",
     category: "Kids",
     color: "Red Yellow",
@@ -1094,12 +1323,859 @@ export const products = [
     price: 1100,
     originalPrice: 1800,
     discount: 40,
-    image: p017_1,
-    images: [p017_1, p017_2, p017_3],
+    image: p23_1,
+    images: [p23_1, p23_2, p23_3],
     badge: "Best Value",
     rating: 4.7,
     reviews: 8,
     description: "Grand lehenga choli for kids in bright festive colors.",
     inStock: true,
   },
+  {
+    id: 50,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Kids",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p24_1,
+    images: [p24_1, p24_2, p24_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  }, {
+    id: 51,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Kids",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p25_1,
+    images: [p25_1, p25_2, p25_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  }, {
+    id: 52,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Kids",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p26_1,
+    images: [p26_1, p26_2, p26_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  }
+  , {
+    id: 53,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Kids",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p27_1,
+    images: [p27_1, p27_2, p27_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+  // WEDDING DATA
+  {
+    id: 54,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p28_1,
+    images: [p28_1, p28_2, p28_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 55,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p29_1,
+    images: [p29_1, p29_2, p29_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 56,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p30_1,
+    images: [p30_1, p30_2, p30_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 57,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p31_1,
+    images: [p31_1, p31_2, p31_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 58,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p32_1,
+    images: [p32_1, p32_2, p32_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 59,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p33_1,
+    images: [p33_1, p33_2, p33_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 60,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p34_1,
+    images: [p34_1, p34_2, p34_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 61,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p35_1,
+    images: [p35_1, p35_2, p35_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 62,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Wedding",
+    color: "Red Yellow",
+    occasion: "Wedding",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p36_1,
+    images: [p36_1, p36_2, p36_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+  // COTTON DATA
+
+   {
+    id: 63,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p37_1,
+    images: [p37_1, p37_2, p37_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 64,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p38_1,
+    images: [p38_1, p38_2, p38_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 65,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p39_1,
+    images: [p39_1, p39_2, p39_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 66,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p40_1,
+    images: [p40_1, p40_2, p40_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 67,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p41_1,
+    images: [p41_1, p41_2, p41_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 68,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p42_1,
+    images: [p42_1, p42_2, p42_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 69,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p43_1,
+    images: [p43_1, p43_2, p43_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 70,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Cotton",
+    color: "Red Yellow",
+    occasion: "Cotton",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p44_1,
+    images: [p44_1, p44_2, p44_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+  // FESTIVAL DATA
+ {
+    id: 71,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Festival",
+    color: "Red Yellow",
+    occasion: "Festival",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p45_1,
+    images: [p45_1, p45_2, p45_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+ {
+    id: 72,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Festival",
+    color: "Red Yellow",
+    occasion: "Festival",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p46_1,
+    images: [p46_1, p46_2, p46_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+ {
+    id: 73,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Festival",
+    color: "Red Yellow",
+    occasion: "Festival",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p47_1,
+    images: [p47_1, p47_2, p47_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+ {
+    id: 74,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Festival",
+    color: "Red Yellow",
+    occasion: "Festival",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p48_1,
+    images: [p48_1, p48_2, p48_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+ {
+    id: 75,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Festival",
+    color: "Red Yellow",
+    occasion: "Festival",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p49_1,
+    images: [p49_1, p49_2, p49_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+// HANDLOOM DATA
+{
+    id: 76,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p50_1,
+    images: [p50_1, p50_2, p50_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 77,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p51_1,
+    images: [p51_1, p51_2, p51_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 78,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p52_1,
+    images: [p52_1, p52_2, p52_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 79,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p53_1,
+    images: [p53_1, p53_2, p53_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 80,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p54_1,
+    images: [p54_1, p54_2, p54_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 81,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p55_1,
+    images: [p55_1, p55_2, p55_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 82,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p56_1,
+    images: [p56_1, p56_2, p56_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 83,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Handloom",
+    color: "Red Yellow",
+    occasion: "Handloom",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p57_1,
+    images: [p57_1, p57_2, p57_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+  // ===== NEW ARRIVALS DATA =====
+
+  {
+    id: 84,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p58_1,
+    images: [p58_1, p58_2, p58_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 85,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p59_1,
+    images: [p59_1, p59_2, p59_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 86,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p60_1,
+    images: [p60_1, p60_2, p60_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 87,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p61_1,
+    images: [p61_1, p61_2, p61_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 88,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p62_1,
+    images: [p62_1, p62_2, p62_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 90,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p63_1,
+    images: [p63_1, p63_2, p63_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 91,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p64_1,
+    images: [p64_1, p64_2, p64_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 92,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p65_1,
+    images: [p65_1, p65_2, p65_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 93,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p66_1,
+    images: [p66_1, p66_2, p66_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 94,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p67_1,
+    images: [p67_1, p67_2, p67_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 95,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p68_1,
+    images: [p68_1, p68_2, p68_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+  {
+    id: 96,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "New Arrivals",
+    color: "Red Yellow",
+    occasion: "New Arrivals",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p69_1,
+    images: [p69_1, p69_2, p69_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
+  // ===== DAILY WEAR DATA =====
+
+{
+    id: 97,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Daily Wear",
+    color: "Red Yellow",
+    occasion: "Daily Wear",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p70_1,
+    images: [p70_1, p70_2, p70_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 98,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Daily Wear",
+    color: "Red Yellow",
+    occasion: "Daily Wear",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p71_1,
+    images: [p71_1, p71_2, p71_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+{
+    id: 99,
+    name: "Kids Lehenga - Red & Yellow",
+    category: "Daily Wear",
+    color: "Red Yellow",
+    occasion: "Daily Wear",
+    price: 1100,
+    originalPrice: 1800,
+    discount: 40,
+    image: p72_1,
+    images: [p72_1, p72_2, p72_3],
+    badge: "Best Value",
+    rating: 4.7,
+    reviews: 8,
+    description: "Grand lehenga choli for kids in bright festive colors.",
+    inStock: true,
+  },
+
 ];
