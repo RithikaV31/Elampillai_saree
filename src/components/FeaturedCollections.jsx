@@ -4,21 +4,20 @@ import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 /* ✅ IMPORT IMAGES */
-/* ✅ IMPORT IMAGES */
 // Wedding
-import w1 from "../assets/Wedding/BGR1.jpeg";
-import w2 from "../assets/Wedding/BGR2.jpeg";
-import w3 from "../assets/Wedding/BGR3.jpeg";
+import w1 from "../assets/Home/Festival.jpg";
+import w2 from "../assets/Home/office.jpg";
+import w3 from "../assets/Home/wedding.jpg";
 
 // Festival
-import f1 from "../assets/Festival/F1.jpeg";
-import f2 from "../assets/Festival/F2.jpeg";
-import f3 from "../assets/Festival/F3.jpeg";
+import f1 from "../assets/Home/office.jpg";
+import f2 from "../assets/Home/wedding.jpg";
+import f3 from "../assets/Home/Festival.jpg";
 
 // Office
-import o1 from "../assets/Cotton/BM1.jpeg";
-import o2 from "../assets/Cotton/BM2.jpeg";
-import o3 from "../assets/Cotton/BM3.jpeg";
+import o1 from "../assets/Home/wedding.jpg";
+import o2 from "../assets/Home/office.jpg";
+import o3 from "../assets/Home/Festival.jpg";
 
 const collections = [
   {
@@ -47,7 +46,7 @@ const collections = [
   },
 ];
 
-function FeaturedCollections() {
+export default function FeaturedCollections() {
   const navigate = useNavigate();
   const [currentIndices, setCurrentIndices] = useState(collections.map(() => 0));
 
@@ -56,7 +55,7 @@ function FeaturedCollections() {
       setCurrentIndices((prev) =>
         prev.map((idx, i) => (idx + 1) % collections[i].images.length)
       );
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
@@ -67,10 +66,12 @@ function FeaturedCollections() {
           padding: 2rem 1rem;
           background-color: var(--background);
         }
+
         .section-header {
           text-align: center;
           margin-bottom: 4rem;
         }
+
         .section-title {
           font-family: var(--font-secondary);
           font-size: 3rem;
@@ -78,6 +79,7 @@ function FeaturedCollections() {
           color: var(--primary);
           margin-bottom: 1rem;
         }
+
         .section-subtitle {
           font-family: var(--font-primary);
           font-size: 1.15rem;
@@ -93,6 +95,7 @@ function FeaturedCollections() {
           max-width: 1200px;
           margin: 0 auto;
         }
+
         @media (min-width: 768px) {
           .collections-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -116,15 +119,19 @@ function FeaturedCollections() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.8s ease;
+          position: absolute;
+          inset: 0;
         }
+
         .collection-card:hover .card-bg {
-          transform: scale(1.1);
+          transform: scale(1.05);
+          transition: transform 0.8s ease;
         }
 
         .card-overlay {
-          position: absolute;
-          inset: 0;
+          position: relative;
+          z-index: 2;
+          height: 100%;
           background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
           display: flex;
           flex-direction: column;
@@ -133,6 +140,7 @@ function FeaturedCollections() {
           color: white;
           transition: background 0.3s;
         }
+
         .collection-card:hover .card-overlay {
           background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2) 60%);
         }
@@ -177,6 +185,7 @@ function FeaturedCollections() {
           transform: translateY(10px);
           transition: all 0.3s ease 0.1s;
         }
+
         .collection-card:hover .btn-text {
           opacity: 1;
           transform: translateY(0);
@@ -201,18 +210,20 @@ function FeaturedCollections() {
             transition={{ delay: index * 0.1 }}
             onClick={() => navigate(item.link)}
           >
+            {/* ✅ SLIDE IMAGE ANIMATION */}
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndices[index]}
                 src={item.images[currentIndices[index]]}
                 alt={item.title}
                 className="card-bg"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
+                initial={{ x: 80, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -80, opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </AnimatePresence>
+
             <div className="card-overlay">
               <span className="card-tag">{item.tag}</span>
               <h3 className="card-title">{item.title}</h3>
@@ -227,5 +238,3 @@ function FeaturedCollections() {
     </section>
   );
 }
-
-export default FeaturedCollections;
