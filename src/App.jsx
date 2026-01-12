@@ -345,7 +345,7 @@ function App() {
 
         {/* OTHER */}
         <Route path="/account" element={<MyAccount />} />
-        <Route path="/checkout" element={<Checkout cart={cart} />} />
+        <Route path="/checkout" element={<Checkout cart={cart} onRemove={removeFromCart} />} />
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/instagram" element={<InstagramGallery />} />

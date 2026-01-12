@@ -14,42 +14,42 @@ const slides = [
   {
     image: hero1,
     subtitle: "The Elite Collection",
-    title: "Timeless Elegance of Elampillai",
+    title: "",
     desc: "Handcrafted with passion, woven with tradition. Experience the luxury of authentic silk.",
     color: "#9f1239", // Deep Rose
   },
   {
     image: hero2,
     subtitle: "New Arrivals",
-    title: "Weaving Stories in Silk",
+    title: "",
     desc: "Every thread tells a story of heritage and artistry. Perfect for your special moments.",
     color: "#d97706", // Gold
   },
   {
     image: hero3,
     subtitle: "Festival Special",
-    title: "Grace in Every Fold",
+    title: "",
     desc: "Graceful sarees for poojas, festivals, engagements, and celebrations, designed for comfort with a traditional touch.",
     color: "#1e3a8a", // Royal Blue
   },
   {
     image: hero4,
     subtitle: "Office Wear & Daily Wear Sarees",
-    title: "Timeless Elegance of Elampillai",
+    title: "",
     desc: "Lightweight handloom & powerloom sarees ideal for office and daily wear, with breathable fabrics and subtle designs.",
     color: "#9f1239", // Deep Rose
   },
   {
     image: hero5,
     subtitle: "Group Wear & Gift Sarees",
-    title: "Timeless Elegance of Elampillai",
+    title: "",
     desc: "Perfect for family functions, group events, return gifts, and bulk gifting, with matching designs and consistent quality.",
     color: "#9f1239", // Deep Rose
   },
   {
     image: hero6,
     subtitle: "Trendy Sarees for Modern Girls",
-    title: "Timeless Elegance of Elampillai",
+    title: "",
     desc: "Stylish Elampillai sarees for modern and trendy girls—soft fabrics, fresh colours, minimal borders, and elegant designs that make you look pretty, confident, and graceful in saree.",
     color: "#9f1239", // Deep Rose
   },
@@ -133,10 +133,8 @@ export default function Hero() {
           font-family: 'Cinzel', serif; /* Cinematic/Story Title */
           font-size: 4rem;
           line-height: 1.1;
-          color:  #33b419ff !important;
           margin-bottom: 1.5rem;
           max-width: 900px;
-          text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;

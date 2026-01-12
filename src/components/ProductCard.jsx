@@ -176,6 +176,25 @@ export default function ProductCard({
           color: var(--muted-foreground);
           cursor: default;
         }
+        .buy-now-btn {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: none;
+          background: #ca8a04; /* Gold accent color */
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .buy-now-btn:hover {
+          background: #b47b03;
+          transform: translateY(-2px);
+        }
         @media (max-width: 768px) {
           .product-card { 
             border-radius: 8px; /* Tighter radius */
@@ -249,16 +268,28 @@ export default function ProductCard({
             </>
           )}
         </div>
-        <button
-          className={`add-btn ${isInCart ? "in-cart" : ""}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            if (!isInCart) onAddToCart(product.id, 1);
-          }}
-        >
-          <ShoppingCart size={18} />
-          {isInCart ? "Added to Cart" : "Add to Cart"}
-        </button>
+        <div style={{ display: "flex", gap: "8px", flexDirection: "column" }}>
+          <button
+            className={`add-btn ${isInCart ? "in-cart" : ""}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!isInCart) onAddToCart(product.id, 1);
+            }}
+          >
+            <ShoppingCart size={18} />
+            {isInCart ? "In Cart" : "Add to Cart"}
+          </button>
+          <button
+            className="buy-now-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!isInCart) onAddToCart(product.id, 1); // Ensure it's in cart first
+              navigate('/checkout'); // Redirect to checkout
+            }}
+          >
+            Buy Now
+          </button>
+        </div>
       </div>
     </div>
   );

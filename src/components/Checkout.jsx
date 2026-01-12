@@ -1,9 +1,9 @@
-import { Lock, User, MapPin, ShieldCheck, Package, ArrowLeft } from "lucide-react";
+import { Lock, User, MapPin, ShieldCheck, Package, ArrowLeft, Trash2 } from "lucide-react";
 import { useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import { Link } from "react-router-dom";
 
-export default function Checkout({ cart = [] }) {
+export default function Checkout({ cart = [], onRemove }) {
   const receiptRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -35,9 +35,10 @@ export default function Checkout({ cart = [] }) {
   };
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const tax = Math.round(subtotal * 0.05); // 5% Tax
-  const shipping = subtotal > 5000 ? 0 : 150; // Example shipping logic
-  const total = subtotal + tax + shipping;
+
+  // Tax removed as per request
+  // Shipping is calculated by location
+  const total = subtotal;
 
   const validateForm = () => {
     const requiredFields = ["firstName", "lastName", "address", "city", "state", "pin", "phone"];
@@ -67,7 +68,9 @@ export default function Checkout({ cart = [] }) {
     cartItems.forEach((item, i) => {
       message += `${i + 1}. ${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toLocaleString()}\n`;
     });
-    message += `\n*TOTAL (inc. tax): ₹${total.toLocaleString()}*\n----------------------------\n📍 *Delivery Details*\n`;
+    message += `\n*Subtotal: ₹${total.toLocaleString()}*\n`;
+    message += `*(Shipping charge will be calculated by the location)*\n`;
+    message += `----------------------------\n📍 *Delivery Details*\n`;
     message += `Name: ${form.firstName} ${form.lastName}\nPhone: ${form.phone}\n`;
     message += `Address: ${form.address}, ${form.city}, ${form.state} - ${form.pin}\n\nPlease confirm my order! ✅`;
 
@@ -203,10 +206,12 @@ export default function Checkout({ cart = [] }) {
 
         <div style={receiptStyles.receiptTotals}>
           <div style={receiptStyles.totalRow}><span>Subtotal</span><span>₹{subtotal.toLocaleString()}</span></div>
-          <div style={receiptStyles.totalRow}><span>Tax (5%)</span><span>₹{tax.toLocaleString()}</span></div>
-          {shipping > 0 && <div style={receiptStyles.totalRow}><span>Shipping</span><span>₹{shipping}</span></div>}
+          <div style={receiptStyles.totalRow}>
+            <span>Shipping</span>
+            <span style={{ fontSize: "12px", fontStyle: "italic" }}>Calculated by location</span>
+          </div>
           <div style={{ ...receiptStyles.totalRow, ...receiptStyles.grandTotal }}>
-            <span>Total Amount</span>
+            <span>Total (Excl. Shipping)</span>
             <span>₹{total.toLocaleString()}</span>
           </div>
         </div>
@@ -317,8 +322,19 @@ export default function Checkout({ cart = [] }) {
                       <h4>{item.name}</h4>
                       <p className="item-variant">{item.category}</p>
                     </div>
-                    <div className="item-price">
-                      ₹{(item.price * item.quantity).toLocaleString()}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
+                      <div className="item-price">
+                        ₹{(item.price * item.quantity).toLocaleString()}
+                      </div>
+                      {onRemove && (
+                        <button
+                          onClick={() => onRemove(item.id)}
+                          style={{ background: "none", border: "none", color: "#ef4444", cursor: "pointer", padding: "4px" }}
+                          title="Remove item"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -331,21 +347,14 @@ export default function Checkout({ cart = [] }) {
                   <span>Subtotal</span>
                   <span>₹{subtotal.toLocaleString()}</span>
                 </div>
+
                 <div className="price-row">
-                  <span>Tax (5%)</span>
-                  <span>₹{tax.toLocaleString()}</span>
+                  <span>Shipping</span>
+                  <span style={{ fontSize: "0.85rem", color: "#666", fontStyle: "italic" }}>
+                    Calculated by location
+                  </span>
                 </div>
-                {shipping > 0 ? (
-                  <div className="price-row">
-                    <span>Shipping</span>
-                    <span>₹{shipping.toLocaleString()}</span>
-                  </div>
-                ) : (
-                  <div className="price-row discount-text">
-                    <span>Shipping</span>
-                    <span>Points</span>
-                  </div>
-                )}
+
                 <div className="price-row total-row">
                   <span>Total</span>
                   <span>₹{total.toLocaleString()}</span>
