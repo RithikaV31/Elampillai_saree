@@ -3,6 +3,7 @@ import { SlidersHorizontal, Star, ChevronLeft, ChevronRight, Check } from "lucid
 import { useNavigate } from "react-router-dom";
 import { products as PRODUCTS } from "../data/products";
 import { motion } from "framer-motion";
+import comboBanner from "../assets/combo.png";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -53,15 +54,29 @@ export default function SareeCombo() {
         }
 
         /* HERO SECTION */
+        /* HERO SECTION */
         .combo-hero {
           position: relative;
           padding: 6rem 1rem;
-          background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=2000&auto=format&fit=crop');
+          background-image: url(${comboBanner});
           background-size: cover;
           background-position: center;
           text-align: center;
           color: white;
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
+          border-radius: 0 0 30px 30px;
+          overflow: hidden;
+        }
+        .combo-hero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+        }
+        .combo-hero-content {
+          position: relative;
+          z-index: 2;
         }
         .hero-title {
           font-family: var(--font-secondary);
@@ -332,6 +347,7 @@ export default function SareeCombo() {
       {/* HERO */}
       <div className="combo-hero">
         <motion.div
+          className="combo-hero-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

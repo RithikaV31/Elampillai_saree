@@ -208,7 +208,7 @@ export default function Checkout({ cart = [], onRemove }) {
           <div style={receiptStyles.totalRow}><span>Subtotal</span><span>₹{subtotal.toLocaleString()}</span></div>
           <div style={receiptStyles.totalRow}>
             <span>Shipping</span>
-            <span style={{ fontSize: "12px", fontStyle: "italic" }}>Calculated by location</span>
+            <span style={{ fontSize: "12px", fontStyle: "italic" }}>Based on location</span>
           </div>
           <div style={{ ...receiptStyles.totalRow, ...receiptStyles.grandTotal }}>
             <span>Total (Excl. Shipping)</span>
@@ -351,7 +351,7 @@ export default function Checkout({ cart = [], onRemove }) {
                 <div className="price-row">
                   <span>Shipping</span>
                   <span style={{ fontSize: "0.85rem", color: "#666", fontStyle: "italic" }}>
-                    Calculated by location
+                    Based on location
                   </span>
                 </div>
 

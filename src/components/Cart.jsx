@@ -9,8 +9,7 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
     0
   );
 
-  const tax = Math.round(subtotal * 0.05);
-  const total = subtotal + tax;
+  const total = subtotal;
 
   return (
     <div className="cart-page">
@@ -358,10 +357,6 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
                 <div className="summary-row">
                   <span>Subtotal</span>
                   <span>₹{subtotal.toLocaleString()}</span>
-                </div>
-                <div className="summary-row">
-                  <span>Tax (5%)</span>
-                  <span>₹{tax.toLocaleString()}</span>
                 </div>
 
                 <div className="summary-total">
