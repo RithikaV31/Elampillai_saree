@@ -232,7 +232,7 @@ export default function Checkout({ cart = [], onRemove }) {
 
         <div style={receiptStyles.receiptFooter}>
           <p style={receiptStyles.footerText}>Thank you for shopping with us!</p>
-          <p style={receiptStyles.footerContact}>www.elampillaisarees.com</p>
+          <p style={receiptStyles.footerContact}>www.instagram.com/elampillai_nesavaalar</p>
         </div>
       </div>
       {/* --- END HIDDEN INVOICE --- */}

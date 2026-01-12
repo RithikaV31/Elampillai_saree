@@ -6,44 +6,44 @@ import ProductCard from "./ProductCard";
 const ITEMS_PER_PAGE = 15;
 
 export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggleWishlist }) {
-    const [maxPrice, setMaxPrice] = useState(50000);
-    const [color, setColor] = useState(null);
-    const [occasion, setOccasion] = useState([]);
-    const [page, setPage] = useState(1);
-    const [showFilters, setShowFilters] = useState(false);
+  const [maxPrice, setMaxPrice] = useState(50000);
+  const [color, setColor] = useState(null);
+  const [occasion, setOccasion] = useState([]);
+  const [page, setPage] = useState(1);
+  const [showFilters, setShowFilters] = useState(false);
 
-    const toggle = (arr, val) =>
-        arr.includes(val) ? arr.filter((i) => i !== val) : [...arr, val];
+  const toggle = (arr, val) =>
+    arr.includes(val) ? arr.filter((i) => i !== val) : [...arr, val];
 
-    const clearAll = () => {
-        setMaxPrice(50000);
-        setColor(null);
-        setOccasion([]);
-        setPage(1);
-    };
+  const clearAll = () => {
+    setMaxPrice(50000);
+    setColor(null);
+    setOccasion([]);
+    setPage(1);
+  };
 
-    /* ================= FILTER ONLY SILK COTTON ================= */
-    const categoryProducts = PRODUCTS.filter((p) => p.category === "Silk Cotton");
+  /* ================= FILTER ONLY SILK COTTON ================= */
+  const categoryProducts = PRODUCTS.filter((p) => p.category === "Silk Cotton");
 
-    /* ================= APPLY OTHER FILTERS ================= */
-    const filtered = categoryProducts.filter((p) => {
-        if (p.price > maxPrice) return false;
-        if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false;
-        if (occasion.length && !occasion.includes(p.occasion)) return false;
-        return true;
-    });
+  /* ================= APPLY OTHER FILTERS ================= */
+  const filtered = categoryProducts.filter((p) => {
+    if (p.price > maxPrice) return false;
+    if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false;
+    if (occasion.length && !occasion.includes(p.occasion)) return false;
+    return true;
+  });
 
-    /* ================= PAGINATION ================= */
-    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  /* ================= PAGINATION ================= */
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
 
-    const paginated = filtered.slice(
-        (page - 1) * ITEMS_PER_PAGE,
-        page * ITEMS_PER_PAGE
-    );
+  const paginated = filtered.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
 
-    return (
-        <div className="sl-page">
-            <style>{`
+  return (
+    <div className="sl-page">
+      <style>{`
         .sl-page {
           background-color: var(--background);
           color: var(--foreground);
@@ -268,150 +268,156 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
         }
       `}</style>
 
-            {/* HEADER */}
-            <div className="sl-header">
-                <h2>Silk Cotton Collection</h2>
-                <p>Lightweight, comfortable, and elegant silk cotton sarees for every occasion.</p>
+      {/* HEADER */}
+      <div className="sl-header">
+        <h2>Silk Cotton Collection</h2>
+        <p>Lightweight, comfortable, and elegant silk cotton sarees for every occasion.</p>
+      </div>
+
+      <div className="sl-container">
+
+        {/* FILTERS SIDEBAR */}
+        <aside className={`sl-filter ${showFilters ? "open" : ""}`}>
+          <div className="filter-header">
+            <h3 className="filter-title"><SlidersHorizontal size={18} /> Filters</h3>
+            <span className="sl-clear" onClick={() => { clearAll(); setShowFilters(false); }}>Clear All</span>
+            {showFilters && <span onClick={() => setShowFilters(false)} style={{ marginLeft: "auto", padding: 8, cursor: "pointer" }}>✕</span>}
+          </div>
+
+          <div className="filter-group">
+            <p className="group-title">Price Range</p>
+            <input
+              type="range"
+              className="price-range"
+              min="500"
+              max="50000"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(+e.target.value)}
+            />
+            <div className="price-labels">
+              <span>₹500</span>
+              <span>₹{maxPrice.toLocaleString()}</span>
             </div>
+          </div>
 
-            <div className="sl-container">
+          {/* NO CATEGORY FILTER SINCE THIS IS DEDICATED PAGE */}
 
-                {/* FILTERS SIDEBAR */}
-                <aside className={`sl-filter ${showFilters ? "open" : ""}`}>
-                    <div className="filter-header">
-                        <h3 className="filter-title"><SlidersHorizontal size={18} /> Filters</h3>
-                        <span className="sl-clear" onClick={() => { clearAll(); setShowFilters(false); }}>Clear All</span>
-                        {showFilters && <span onClick={() => setShowFilters(false)} style={{ marginLeft: "auto", padding: 8, cursor: "pointer" }}>✕</span>}
-                    </div>
+          <div className="filter-group">
+            <p className="group-title">Filter by Color</p>
+            <div className="color-grid">
+              <div
+                className={`color-dot ${color === null ? "active" : ""}`}
+                style={{ background: "linear-gradient(45deg, transparent 40%, #ff0000 40%, #ff0000 60%, transparent 60%), #fff", border: "1px solid #ddd" }}
+                onClick={() => setColor(null)}
+                title="None"
+              />
+              {[
+                { name: "red", hex: "#ef4444" },
+                { name: "blue", hex: "#3b82f6" },
+                { name: "green", hex: "#22c55e" },
+                { name: "yellow", hex: "#eab308" },
+                { name: "purple", hex: "#a855f7" },
+                { name: "pink", hex: "#ec4899" },
+                { name: "orange", hex: "#f97316" },
+                { name: "gold", hex: "#d4af37" },
+                { name: "silver", hex: "#c0c0c0" },
+                { name: "black", hex: "#000000" },
+                { name: "white", hex: "#ffffff" },
+                { name: "gray", hex: "#6b7280" },
+                { name: "teal", hex: "#14b8a6" },
+                { name: "cream", hex: "#fdfbf7" },
+                { name: "mustard", hex: "#d97706" },
+                { name: "maroon", hex: "#7f1d1d" },
+                { name: "peach", hex: "#fdba74" },
+                { name: "multi", hex: "linear-gradient(45deg, red, yellow, blue)" },
+                { name: "sandal", hex: "#eecfa1" },
+                { name: "lavender", hex: "#e6e6fa" }
+              ].map((c) => (
+                <div
+                  key={c.name}
+                  className={`color-dot ${color === c.name ? "active" : ""}`}
+                  style={{ background: c.hex }}
+                  onClick={() => setColor(color === c.name ? null : c.name)}
+                  title={c.name}
+                />
+              ))}
+            </div>
+          </div>
 
-                    <div className="filter-group">
-                        <p className="group-title">Price Range</p>
-                        <input
-                            type="range"
-                            className="price-range"
-                            min="500"
-                            max="50000"
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(+e.target.value)}
-                        />
-                        <div className="price-labels">
-                            <span>₹500</span>
-                            <span>₹{maxPrice.toLocaleString()}</span>
-                        </div>
-                    </div>
-
-                    {/* NO CATEGORY FILTER SINCE THIS IS DEDICATED PAGE */}
-
-                    <div className="filter-group">
-                        <p className="group-title">Filter by Color</p>
-                        <div className="color-grid">
-                            {[
-                                { name: "red", hex: "#ef4444" },
-                                { name: "blue", hex: "#3b82f6" },
-                                { name: "green", hex: "#22c55e" },
-                                { name: "yellow", hex: "#eab308" },
-                                { name: "purple", hex: "#a855f7" },
-                                { name: "pink", hex: "#ec4899" },
-                                { name: "orange", hex: "#f97316" },
-                                { name: "gold", hex: "#d4af37" },
-                                { name: "silver", hex: "#c0c0c0" },
-                                { name: "black", hex: "#000000" },
-                                { name: "white", hex: "#ffffff" },
-                                { name: "gray", hex: "#6b7280" },
-                                { name: "teal", hex: "#14b8a6" },
-                                { name: "cream", hex: "#fdfbf7" },
-                                { name: "mustard", hex: "#d97706" },
-                                { name: "maroon", hex: "#7f1d1d" },
-                                { name: "peach", hex: "#fdba74" },
-                                { name: "multi", hex: "linear-gradient(45deg, red, yellow, blue)" },
-                                { name: "sandal", hex: "#eecfa1" },
-                                { name: "lavender", hex: "#e6e6fa" }
-                            ].map((c) => (
-                                <div
-                                    key={c.name}
-                                    className={`color-dot ${color === c.name ? "active" : ""}`}
-                                    style={{ background: c.hex }}
-                                    onClick={() => setColor(color === c.name ? null : c.name)}
-                                    title={c.name}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="filter-group">
-                        <p className="group-title">Occasion</p>
-                        {[...new Set(categoryProducts.map(p => p.occasion))].map((o) => (
-                            <label key={o} className="checkbox-label">
-                                <input
-                                    type="checkbox"
-                                    hidden
-                                    checked={occasion.includes(o)}
-                                    onChange={() => setOccasion(toggle(occasion, o))}
-                                />
-                                <div className="checkbox-custom">
-                                    {occasion.includes(o) && <Check size={12} color="white" />}
-                                </div>
-                                <span>{o}</span>
-                            </label>
-                        ))}
-                    </div>
-                </aside>
-
-                {/* MAIN CONTENT AREA */}
-                <div>
-                    {/* MOBILE FILTER TOGGLE */}
-                    <div className="results-info">
-                        <button className="toggle-filter-btn" onClick={() => setShowFilters(true)}>
-                            <SlidersHorizontal size={18} /> Filters
-                        </button>
-                        <span>Showing {filtered.length} products</span>
-                    </div>
-
-                    {/* PRODUCTS GRID */}
-                    <section className="sl-grid">
-                        {paginated.length > 0 ? (
-                            paginated.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    onAddToCart={onAddToCart}
-                                    onToggleWishlist={onToggleWishlist}
-                                    isWishlisted={wishlist.some((w) => w.id === product.id)}
-                                    isInCart={cart.some((c) => c.id === product.id)}
-                                />
-                            ))
-                        ) : (
-                            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px" }}>
-                                <p>No products found matching your criteria.</p>
-                            </div>
-                        )}
-                    </section>
-
-                    {/* PAGINATION */}
-                    {totalPages > 1 && (
-                        <div className="pagination">
-                            <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>
-                                <ChevronLeft size={20} />
-                            </button>
-
-                            {[...Array(totalPages)].map((_, i) => (
-                                <button
-                                    key={i}
-                                    className={`page-btn ${page === i + 1 ? "active" : ""}`}
-                                    onClick={() => setPage(i + 1)}
-                                >
-                                    {i + 1}
-                                </button>
-                            ))}
-
-                            <button className="page-btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
-                                <ChevronRight size={20} />
-                            </button>
-                        </div>
-                    )}
+          <div className="filter-group">
+            <p className="group-title">Occasion</p>
+            {[...new Set(categoryProducts.map(p => p.occasion))].map((o) => (
+              <label key={o} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  hidden
+                  checked={occasion.includes(o)}
+                  onChange={() => setOccasion(toggle(occasion, o))}
+                />
+                <div className="checkbox-custom">
+                  {occasion.includes(o) && <Check size={12} color="white" />}
                 </div>
+                <span>{o}</span>
+              </label>
+            ))}
+          </div>
+        </aside>
 
+        {/* MAIN CONTENT AREA */}
+        <div>
+          {/* MOBILE FILTER TOGGLE */}
+          <div className="results-info">
+            <button className="toggle-filter-btn" onClick={() => setShowFilters(true)}>
+              <SlidersHorizontal size={18} /> Filters
+            </button>
+            <span>Showing {filtered.length} products</span>
+          </div>
+
+          {/* PRODUCTS GRID */}
+          <section className="sl-grid">
+            {paginated.length > 0 ? (
+              paginated.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={onAddToCart}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.some((w) => w.id === product.id)}
+                  isInCart={cart.some((c) => c.id === product.id)}
+                />
+              ))
+            ) : (
+              <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px" }}>
+                <p>No products found matching your criteria.</p>
+              </div>
+            )}
+          </section>
+
+          {/* PAGINATION */}
+          {totalPages > 1 && (
+            <div className="pagination">
+              <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>
+                <ChevronLeft size={20} />
+              </button>
+
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  className={`page-btn ${page === i + 1 ? "active" : ""}`}
+                  onClick={() => setPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button className="page-btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
+                <ChevronRight size={20} />
+              </button>
             </div>
+          )}
         </div>
-    );
+
+      </div>
+    </div>
+  );
 }

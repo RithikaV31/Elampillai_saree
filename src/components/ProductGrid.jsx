@@ -102,7 +102,7 @@ function ProductGrid({
           <h2 className="section-title">New Arrivals</h2>
           <p className="section-subtitle">
             காலம் மாறினாலும், நூலில் நெசவான பாரம்பரியம் மாறாது.
-எலம்பிள்ளை சேலை — மரபின் மணம், அழகின் முகவரி.
+இளம்பிள்ளை  சேலை — மரபின் மணம், அழகின் முகவரி.
           </p>
         </div>
 

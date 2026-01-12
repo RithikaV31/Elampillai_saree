@@ -4,20 +4,21 @@ import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 /* ✅ IMPORT IMAGES */
+/* ✅ IMPORT IMAGES */
 // Wedding
-import w1 from "../assets/Home/Festival.jpg";
-import w2 from "../assets/Home/office.jpg";
-import w3 from "../assets/Home/wedding.jpg";
+import w1 from "../assets/Wedding/BGR1.jpeg";
+import w2 from "../assets/Wedding/BGR2.jpeg";
+import w3 from "../assets/Wedding/BGR3.jpeg";
 
 // Festival
-import f1 from "../assets/Home/office.jpg";
-import f2 from "../assets/Home/wedding.jpg";
-import f3 from "../assets/Home/Festival.jpg";
+import f1 from "../assets/Festival/F1.jpeg";
+import f2 from "../assets/Festival/F2.jpeg";
+import f3 from "../assets/Festival/F3.jpeg";
 
 // Office
-import o1 from "../assets/Home/wedding.jpg";
-import o2 from "../assets/Home/office.jpg";
-import o3 from "../assets/Home/Festival.jpg";
+import o1 from "../assets/Cotton/BM1.jpeg";
+import o2 from "../assets/Cotton/BM2.jpeg";
+import o3 from "../assets/Cotton/BM3.jpeg";
 
 const collections = [
   {

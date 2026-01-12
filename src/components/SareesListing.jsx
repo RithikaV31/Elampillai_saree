@@ -361,6 +361,12 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
           <div className="filter-group">
             <p className="group-title">Filter by Color</p>
             <div className="color-grid">
+              <div
+                className={`color-dot ${color === null ? "active" : ""}`}
+                style={{ background: "linear-gradient(45deg, transparent 40%, #ff0000 40%, #ff0000 60%, transparent 60%), #fff", border: "1px solid #ddd" }}
+                onClick={() => setColor(null)}
+                title="None"
+              />
               {[
                 { name: "red", hex: "#ef4444" },
                 { name: "blue", hex: "#3b82f6" },
