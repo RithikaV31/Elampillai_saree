@@ -352,7 +352,7 @@ export default function SareeCombo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="hero-title">Exclusive Combo Sets</h1>
+          <h1 className="hero-title"></h1>
           <p className="hero-subtitle">Curated sets of premium sarees at unbeatable prices. Perfect for weddings, gifting, and festive occasions.</p>
         </motion.div>
       </div>
