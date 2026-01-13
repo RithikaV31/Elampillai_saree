@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { ArrowRight } from "lucide-react";
 
@@ -8,6 +9,7 @@ function ProductGrid({
   onAddToCart,
   onToggleWishlist,
 }) {
+  const navigate = useNavigate();
   return (
     <section className="product-section" id="new-arrivals">
       <style>{`
@@ -102,7 +104,7 @@ function ProductGrid({
           <h2 className="section-title">New Arrivals</h2>
           <p className="section-subtitle">
             காலம் மாறினாலும், நூலில் நெசவான பாரம்பரியம் மாறாது.
-இளம்பிள்ளை  சேலை — மரபின் மணம், அழகின் முகவரி.
+            இளம்பிள்ளை  சேலை — மரபின் மணம், அழகின் முகவரி.
           </p>
         </div>
 
@@ -120,7 +122,7 @@ function ProductGrid({
         </div>
 
         <div className="view-all-container">
-          <button className="btn-view-all">
+          <button className="btn-view-all" onClick={() => navigate("/sarees")}>
             View All Collection <ArrowRight size={20} />
           </button>
         </div>
