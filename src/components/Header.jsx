@@ -67,11 +67,25 @@ function Header({ cartCount, wishlistCount, onSearchClick }) {
             <div className="nav-actions">
               <ul className={`nav-menu ${isMobileMenuOpen ? "active" : ""}`}>
                 <li onClick={() => go("/")}><Home size={16} /> Home</li>
-                <li onClick={() => go("/sarees")} className="dropdown-trigger"
+                <li onClick={(e) => {
+                  if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsDropdownOpen(!isDropdownOpen);
+                  } else {
+                    go("/sarees");
+                  }
+                }} className="dropdown-trigger"
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}>
                   <span className="dropdown-label"><Grid size={16} /> Collections <ChevronDown size={12} /></span>
                   <div className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
+                    <div className="dropdown-item" onClick={(e) => {
+                      e.stopPropagation();
+                      navigate("/sarees");
+                      setIsDropdownOpen(false);
+                      setIsMobileMenuOpen(false);
+                    }}><strong>All Collections</strong></div>
                     {categories.map((cat) => (
                       <div key={cat} className="dropdown-item" onClick={(e) => {
                         e.stopPropagation();

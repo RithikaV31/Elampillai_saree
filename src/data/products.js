@@ -510,9 +510,9 @@ export const products = [
   },
   {
     id: 6,
-    name: "Silk Saree - Royal Blue with Green Border",
+    name: "Silk Saree - Royal Blue with Pink Border",
     category: "Powerloom",
-    color: "Royal Blue with Green Border",
+    color: "Royal Blue with Pink Border",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 599, // + shipping
     originalPrice: 1198,
@@ -523,7 +523,7 @@ export const products = [
     rating: 4.9,
     reviews: 89,
     description:
-      "Classic royal blue silk saree with rich green borders and detailed golden zari weaving. Perfect choice for traditional and wedding wear.",
+      "Classic royal blue silk saree with rich pink borders and detailed golden zari weaving. Perfect choice for traditional and wedding wear.",
     inStock: true,
   },
   {
@@ -1170,9 +1170,9 @@ export const products = [
   },
   {
     id: 41,
-    name: "Silk Cotton Saree – Lavender with Royal Blue Border",
+    name: "Silk Cotton Saree – Pink with Royal Blue Border",
     category: "Silk Cotton",
-    color: "Lavender with Royal Blue",
+    color: "Pink with Royal Blue",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 600,
     originalPrice: 1200,
@@ -1183,14 +1183,14 @@ export const products = [
     rating: 4.9,
     reviews: 89,
     description:
-      "Soft lavender silk cotton saree paired with rich royal blue zari border and elegant woven motifs.",
+      "Soft pink silk cotton saree paired with rich royal blue zari border and elegant woven motifs.",
     inStock: true,
   },
   {
     id: 42,
-    name: "Silk Cotton Saree – Maroon with Green Border",
+    name: "Silk Cotton Saree – Sandal with Blue Border",
     category: "Silk Cotton",
-    color: "Maroon with Green",
+    color: "Sandal with Blue",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 599,
     originalPrice: 1198,
@@ -1201,7 +1201,7 @@ export const products = [
     rating: 4.9,
     reviews: 89,
     description:
-      "Classic maroon silk cotton saree with contrast green zari border and traditional woven patterns.",
+      "Classic sandal silk cotton saree with contrast blue zari border and traditional woven patterns.",
     inStock: true,
   },
   {
@@ -1224,9 +1224,9 @@ export const products = [
   },
   {
     id: 44,
-    name: "Silk Cotton Saree – Olive Green with Gold Border",
+    name: "Silk Cotton Saree – Olive Green with Silver Border",
     category: "Silk Cotton",
-    color: "Olive Green with Gold",
+    color: "Olive Green with Silver",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 599,
     originalPrice: 1198,
@@ -1237,14 +1237,14 @@ export const products = [
     rating: 4.9,
     reviews: 89,
     description:
-      "Traditional olive green silk cotton saree with heavy gold zari border for festive wear.",
+      "Traditional olive green silk cotton saree with heavy silver zari border for festive wear.",
     inStock: true,
   },
   {
     id: 45,
-    name: "Silk Cotton Saree – Purple with Gold Border",
+    name: "Silk Cotton Saree – Silver with Purple Border",
     category: "Silk Cotton",
-    color: "Purple with Gold",
+    color: "Silver with Purple",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 599,
     originalPrice: 1198,
@@ -1255,7 +1255,7 @@ export const products = [
     rating: 4.9,
     reviews: 89,
     description:
-      "Royal purple silk cotton saree with rich gold zari weaving for elegant traditional styling.",
+      "Royal purple silk cotton saree with rich silver zari weaving for elegant traditional styling.",
     inStock: true,
   },
   {
@@ -1518,9 +1518,9 @@ export const products = [
   },
   {
     id: 60,
-    name: "Silk Saree – Multi Color with Gold Zari Border",
+    name: "Silk Saree – Royal Purple with Gold Zari Border",
     category: "Wedding",
-    color: "Multi Color with Gold",
+    color: "Royal Purple with Gold",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1531,7 +1531,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Colorful silk saree with heavy gold zari border and vibrant traditional patterns.",
+      "Royal purple silk saree with heavy gold zari border and vibrant traditional patterns.",
     inStock: true,
   },
   {
@@ -1594,9 +1594,9 @@ export const products = [
   },
   {
     id: 64,
-    name: "Cotton Saree – Grey with Check Pattern Border",
+    name: "Cotton Saree – Grey with Blue Check Pattern Border",
     category: "Cotton",
-    color: "Grey Multicolor",
+    color: "Grey, Blue",
     occasion: "Daily Wear, Office, Casual",
     price: 1100,
     originalPrice: 1800,
@@ -1607,7 +1607,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Soft grey cotton saree with traditional checked border design, perfect for regular use.",
+      "Soft grey cotton saree with traditional blue checked border design, perfect for regular use.",
     inStock: true,
   },
   {
@@ -1630,9 +1630,9 @@ export const products = [
   },
   {
     id: 66,
-    name: "Cotton Saree – Pink with Silver Border",
+    name: "Cotton Saree – Pink with Gold Border",
     category: "Cotton",
-    color: "Pink with Silver",
+    color: "Pink with Gold",
     occasion: "Casual, Daily Wear, Small Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1643,14 +1643,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Bright pink cotton saree with subtle silver woven border for elegant casual wear.",
+      "Bright pink cotton saree with subtle gold woven border for elegant casual wear.",
     inStock: true,
   },
   {
     id: 67,
-    name: "Cotton Saree – Mauve with Traditional Border",
+    name: "Cotton Saree –Pink with Traditional Purple Border",
     category: "Cotton",
-    color: "Mauve",
+    color: "Pink with Traditional Purple",
     occasion: "Daily Wear, Office, Casual",
     price: 1100,
     originalPrice: 1800,
@@ -1661,7 +1661,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Soft mauve cotton saree with elegant traditional border suitable for regular wear.",
+      "Soft pink cotton saree with elegant traditional purple border suitable for regular wear.",
     inStock: true,
   },
   {
@@ -1684,9 +1684,9 @@ export const products = [
   },
   {
     id: 69,
-    name: "Cotton Saree – Red with Gold Border",
+    name: "Cotton Saree – Red with Pink Border",
     category: "Cotton",
-    color: "Red with Gold",
+    color: "Red with Pink",
     occasion: "Festival, Traditional, Casual Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1697,14 +1697,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Bright red cotton saree with rich gold woven border for festive casual occasions.",
+      "Bright red cotton saree with rich pink woven border for festive casual occasions.",
     inStock: true,
   },
   {
     id: 70,
-    name: "Cotton Saree – Orange with Traditional Border",
+    name: "Cotton Saree – Orange with Traditional Maroon Border",
     category: "Cotton",
-    color: "Orange",
+    color: "Orange with Traditional Maroon",
     occasion: "Festival, Daily Wear, Traditional",
     price: 1100,
     originalPrice: 1800,
@@ -1715,7 +1715,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Vibrant orange cotton saree with classic woven border, suitable for everyday traditional wear.",
+      "Vibrant orange cotton saree with classic maroon woven border, suitable for everyday traditional wear.",
     inStock: true,
   },
 
@@ -1814,9 +1814,9 @@ export const products = [
   // HANDLOOM DATA
   {
     id: 76,
-    name: "Handloom Saree – Red with Gold Zari Border",
+    name: "Handloom Saree – Green, Pink with Gold Zari Border",
     category: "Handloom",
-    color: "Red with Gold",
+    color: "Green, Pink",
     occasion: "Festival, Wedding, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1827,7 +1827,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Traditional handloom saree in rich red shade with classic gold zari woven border and motifs.",
+      "Traditional handloom saree in rich green and pink shade with classic gold zari woven border and motifs.",
     inStock: true,
   },
   {
@@ -1850,9 +1850,9 @@ export const products = [
   },
   {
     id: 78,
-    name: "Handloom Saree – Orange with Gold Zari Border",
+    name: "Handloom Saree – Orange, Green with Gold Zari Border",
     category: "Handloom",
-    color: "Orange with Gold",
+    color: "Orange, Green",
     occasion: "Festival, Wedding, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1868,9 +1868,9 @@ export const products = [
   },
   {
     id: 79,
-    name: "Handloom Saree – Green with Pink Border",
+    name: "Handloom Saree – White with Pink Border",
     category: "Handloom",
-    color: "Green with Pink",
+    color: "White with Pink",
     occasion: "Festival, Wedding, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1881,14 +1881,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Traditional green handloom saree with bright pink border and detailed zari patterns.",
+      "Traditional white handloom saree with bright pink border and detailed zari patterns.",
     inStock: true,
   },
   {
     id: 80,
-    name: "Handloom Saree – Cream with Pink Border",
+    name: "Handloom Saree – Blue with Pink Border",
     category: "Handloom",
-    color: "Cream with Pink",
+    color: "Blue with Pink",
     occasion: "Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1899,14 +1899,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Soft cream handloom saree paired with pink zari border for graceful festive wear.",
+      "Soft blue handloom saree paired with pink zari border for graceful festive wear.",
     inStock: true,
   },
   {
     id: 81,
-    name: "Handloom Saree – Teal Blue with Gold Border",
+    name: "Handloom Saree – Creamy White and Red with Gold Border",
     category: "Handloom",
-    color: "Teal Blue with Gold",
+    color: "Creamy White and Red with Gold",
     occasion: "Festival, Wedding, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1917,14 +1917,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Elegant teal blue handloom saree with rich gold zari border and woven motifs.",
+      "Elegant creamy white and red handloom saree with rich gold zari border and woven motifs.",
     inStock: true,
   },
   {
     id: 82,
-    name: "Handloom Saree – Beige with Gold Zari Border",
+    name: "Handloom Saree – Creamy White and Pink with Gold Zari Border",
     category: "Handloom",
-    color: "Beige with Gold",
+    color: "Creamy White and Pink with Gold",
     occasion: "Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1935,14 +1935,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Classic beige handloom saree with subtle gold zari border for elegant traditional look.",
+      "Classic creamy white and pink handloom saree with subtle gold zari border for elegant traditional look.",
     inStock: true,
   },
   {
     id: 83,
-    name: "Handloom Saree – Orange with Cream Border",
+    name: "Handloom Saree – Orange and Creamy White with Gold zari Border",
     category: "Handloom",
-    color: "Orange with Cream",
+    color: "Orange and Creamy White with Gold",
     occasion: "Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1953,7 +1953,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Bright orange handloom saree with cream zari border and traditional woven designs.",
+      "Bright orange handloom saree with creamy white and gold zari border and traditional woven designs.",
     inStock: true,
   },
 
@@ -1962,9 +1962,9 @@ export const products = [
 
   {
     id: 84,
-    name: "Silk Saree – Navy Blue with Gold Zari Border",
+    name: "Silk Saree – Navy Blue with Purple Zari Border",
     category: "New Arrivals",
-    color: "Navy Blue with Gold",
+    color: "Navy Blue with Purple",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1975,14 +1975,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Deep navy blue silk saree with rich gold zari border and traditional woven motifs.",
+      "Deep navy blue silk saree with rich purple zari border and traditional woven motifs.",
     inStock: true,
   },
   {
     id: 85,
-    name: "Silk Saree – Dark Green with Gold Zari Border",
+    name: "Silk Saree – Dark Green with Pink Zari Border",
     category: "New Arrivals",
-    color: "Dark Green with Gold",
+    color: "Dark Green with Pink",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -1993,14 +1993,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Traditional dark green silk saree with heavy gold zari border for festive wear.",
+      "Traditional dark green silk saree with heavy pink zari border for festive wear.",
     inStock: true,
   },
   {
     id: 86,
-    name: "Silk Saree – Purple with Gold Zari Border",
+    name: "Silk Saree – Purple with Green Zari Border",
     category: "New Arrivals",
-    color: "Purple with Gold",
+    color: "Purple with Green",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2011,14 +2011,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Elegant purple silk saree with rich gold zari weaving and festive appeal.",
+      "Elegant purple silk saree with rich green zari weaving and festive appeal.",
     inStock: true,
   },
   {
     id: 87,
-    name: "Silk Saree – Bottle Green with Orange Border",
+    name: "Silk Saree – Bottle Green with Red Zari Border",
     category: "New Arrivals",
-    color: "Bottle Green with Orange",
+    color: "Bottle Green with Red",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2029,14 +2029,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Bottle green silk saree paired with vibrant orange zari border and classic patterns.",
+      "Bottle green silk saree paired with vibrant red zari border and classic patterns.",
     inStock: true,
   },
   {
     id: 88,
-    name: "Silk Saree – Red with Gold Zari Border",
+    name: "Silk Saree – Red with Green Zari Border",
     category: "New Arrivals",
-    color: "Red with Gold",
+    color: "Red with Green",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2047,14 +2047,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Classic red silk saree with rich gold zari border for grand traditional occasions.",
+      "Classic red silk saree with rich green zari border for grand traditional occasions.",
     inStock: true,
   },
   {
     id: 88,
-    name: "Silk Saree – Red with Gold Zari Border",
+    name: "Silk Saree – Red with Green Zari Border",
     category: "New Arrivals",
-    color: "Red with Gold",
+    color: "Red with Green",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2065,14 +2065,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Classic red silk saree with rich gold zari border for grand traditional occasions.",
+      "Classic red silk saree with rich green zari border for grand traditional occasions.",
     inStock: true,
   },
   {
     id: 90,
-    name: "Silk Saree – Orange with Gold Zari Border",
+    name: "Silk Saree – Orange with Green Zari Border",
     category: "New Arrivals",
-    color: "Orange with Gold",
+    color: "Orange with Green",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2083,14 +2083,14 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Bright orange silk saree with heavy gold zari weaving and festive look.",
+      "Bright orange silk saree with heavy green zari weaving and festive look.",
     inStock: true,
   },
   {
     id: 91,
-    name: "Silk Saree – Coral Pink with Gold Zari Border",
+    name: "Silk Saree – Coral Pink with Light Green Zari Border",
     category: "New Arrivals",
-    color: "Coral Pink with Gold",
+    color: "Coral Pink with Light Green",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2101,7 +2101,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Soft coral pink silk saree with gold zari border and graceful woven motifs.",
+      "Soft coral pink silk saree with light green zari border and graceful woven motifs.",
     inStock: true,
   },
   {
@@ -2142,9 +2142,9 @@ export const products = [
   },
   {
     id: 94,
-    name: "Silk Saree – Sky Blue with Gold Zari Border",
+    name: "Silk Saree – Sky Blue with Silver Zari Border",
     category: "New Arrivals",
-    color: "Sky Blue with Gold",
+    color: "Sky Blue with Silver",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2155,7 +2155,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Soft sky blue silk saree with traditional gold zari border and temple motifs.",
+      "Soft sky blue silk saree with silver zari border and temple motifs.",
     inStock: true,
   },
   {
@@ -2178,9 +2178,9 @@ export const products = [
   },
   {
     id: 96,
-    name: "Silk Saree – Lavender with Gold Zari Border",
+    name: "Silk Saree – Lavender with Silver Zari Border",
     category: "New Arrivals",
-    color: "Lavender with Gold",
+    color: "Lavender with Silver",
     occasion: "Wedding, Festival, Traditional Functions",
     price: 1100,
     originalPrice: 1800,
@@ -2191,7 +2191,7 @@ export const products = [
     rating: 4.7,
     reviews: 8,
     description:
-      "Graceful lavender silk saree with rich gold zari weaving for festive occasions.",
+      "Graceful lavender silk saree with silver zari weaving for festive occasions.",
     inStock: true,
   },
 
