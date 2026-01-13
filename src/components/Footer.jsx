@@ -166,7 +166,7 @@ function Footer() {
               </div>
               <div className="contact-item">
                 <Mail className="contact-icon" size={20} />
-                <span>thamotenyson001@gmail.com</span>
+                <span>elampillainesavaalar@gmail.com</span>
               </div>
             </div>
           </div>

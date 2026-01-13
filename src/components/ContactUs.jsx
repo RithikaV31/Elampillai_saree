@@ -113,7 +113,7 @@ export default function ContactUs() {
             <div className="cu-icon"><Mail size={24} /></div>
             <div>
               <b style={{ display: 'block', marginBottom: 4, fontSize: '1.1rem' }}>Email Support</b>
-              <p style={{ fontSize: 14, color: "var(--foreground)" }}>thamotenyson001@gmail.com</p>
+              <p style={{ fontSize: 14, color: "var(--foreground)" }}>elampillainesavaalar@gmail.com</p>
             </div>
           </div>
 

@@ -13,7 +13,6 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
   const [maxPrice, setMaxPrice] = useState(50000);
   const [categories, setCategories] = useState([]);
   const [color, setColor] = useState(null);
-  const [occasion, setOccasion] = useState([]);
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
 
@@ -33,7 +32,6 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
     setMaxPrice(50000);
     setCategories([]);
     setColor(null);
-    setOccasion([]);
     setPage(1);
   };
 
@@ -45,7 +43,6 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
     if (p.price > maxPrice) return false;
     if (categories.length && !categories.includes(p.category)) return false;
     if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false; // Fixed: using includes
-    if (occasion.length && !occasion.includes(p.occasion)) return false;
     return true;
   });
 
@@ -246,6 +243,21 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
           cursor: pointer;
         }
 
+        .apply-btn {
+          margin-top: 1rem;
+          width: 100%;
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 12px;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        @media (min-width: 1025px) {
+          .apply-btn { display: none; }
+        }
+
         .sl-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -400,24 +412,9 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
               ))}
             </div>
           </div>
-
-          <div className="filter-group">
-            <p className="group-title">Occasion</p>
-            {[...new Set(singleProducts.map(p => p.occasion))].map((o) => (
-              <label key={o} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  hidden
-                  checked={occasion.includes(o)}
-                  onChange={() => setOccasion(toggle(occasion, o))}
-                />
-                <div className="checkbox-custom">
-                  {occasion.includes(o) && <Check size={12} color="white" />}
-                </div>
-                <span>{o}</span>
-              </label>
-            ))}
-          </div>
+          <button className="apply-btn" onClick={() => setShowFilters(false)}>
+            Apply Filters
+          </button>
         </aside>
 
         {/* MAIN CONTENT AREA */}
@@ -468,7 +465,7 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
           )}
         </div>
 
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

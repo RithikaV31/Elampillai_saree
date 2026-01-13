@@ -56,6 +56,10 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
       alert("⚠️ Please enter a valid 6-digit PIN code.");
       return false;
     }
+    if (form.email && form.email.trim() !== "" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      alert("⚠️ Please enter a valid email address.");
+      return false;
+    }
     return true;
   };
 

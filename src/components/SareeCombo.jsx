@@ -11,18 +11,18 @@ export default function SareeCombo() {
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
-  const [occasion, setOccasion] = useState([]);
   const [color, setColor] = useState(null);
   const [page, setPage] = useState(1);
+  const [showFilters, setShowFilters] = useState(false);
 
   const toggle = (arr, val) =>
     arr.includes(val) ? arr.filter((i) => i !== val) : [...arr, val];
 
   const clearAll = () => {
     setCategories([]);
-    setOccasion([]);
     setColor(null);
     setPage(1);
+    setShowFilters(false);
   };
 
   /* ================= ONLY COMBO PRODUCTS ================= */
@@ -31,7 +31,6 @@ export default function SareeCombo() {
   /* ================= FILTER ================= */
   const filtered = comboProducts.filter((p) => {
     if (categories.length && !categories.includes(p.category)) return false;
-    if (occasion.length && !occasion.includes(p.occasion)) return false;
     if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false; // Fixed: using includes
     return true;
   });
@@ -328,9 +327,49 @@ export default function SareeCombo() {
           cursor: not-allowed;
         }
 
+        .toggle-filter-btn {
+          display: none;
+          gap: 8px;
+          align-items: center;
+          padding: 8px 16px;
+          border: 1px solid var(--border);
+          background: white;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          margin-bottom: 1rem;
+        }
+
+        .apply-btn {
+          margin-top: 1rem;
+          width: 100%;
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 12px;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        @media (min-width: 901px) {
+          .apply-btn { display: none; }
+        }
+
         @media (max-width: 900px) {
           .sl-layout { grid-template-columns: 1fr; }
-          .sl-filter { position: static; margin-bottom: 2rem; }
+          .sl-filter {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            overflow-y: auto;
+            margin-bottom: 0;
+          }
+          .sl-filter.open { display: block; }
+          .toggle-filter-btn { display: flex; }
         }
 
         @media (max-width: 768px) {
@@ -359,10 +398,13 @@ export default function SareeCombo() {
 
       <div className="sl-layout">
         {/* FILTERS */}
-        <aside className="sl-filter">
+        <aside className={`sl-filter ${showFilters ? "open" : ""}`}>
           <div className="filter-header">
             <h3 className="filter-title"><SlidersHorizontal size={18} /> Filters</h3>
-            <span className="sl-clear" onClick={clearAll}>Clear All</span>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+              <span className="sl-clear" onClick={clearAll}>Clear All</span>
+              {showFilters && <span onClick={() => setShowFilters(false)} style={{ cursor: "pointer", fontSize: "1.2rem" }}>✕</span>}
+            </div>
           </div>
 
           <div className="filter-group">
@@ -425,28 +467,18 @@ export default function SareeCombo() {
             </div>
           </div>
 
-          <div className="filter-group">
-            <p className="filter-group-title">Occasion</p>
-            {[...new Set(comboProducts.map(p => p.occasion))].map((o) => (
-              <label key={o} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  hidden
-                  checked={occasion.includes(o)}
-                  onChange={() => setOccasion(toggle(occasion, o))}
-                />
-                <div className="checkbox-custom">
-                  {occasion.includes(o) && <Check size={12} color="white" />}
-                </div>
-                <span className="text">{o}</span>
-              </label>
-            ))}
-          </div>
+          <button className="apply-btn" onClick={() => setShowFilters(false)}>
+            Apply Filters
+          </button>
         </aside>
 
         {/* PRODUCTS */}
         <div>
           <div className="sl-header-bar">
+            {/* TOGGLE BTN for mobile */}
+            <button className="toggle-filter-btn" onClick={() => setShowFilters(true)}>
+              <SlidersHorizontal size={18} /> Filters
+            </button>
             <span className="result-count">Showing {filtered.length} exclusive combos</span>
           </div>
 

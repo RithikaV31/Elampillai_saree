@@ -8,7 +8,6 @@ const ITEMS_PER_PAGE = 15;
 export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggleWishlist }) {
   const [maxPrice, setMaxPrice] = useState(50000);
   const [color, setColor] = useState(null);
-  const [occasion, setOccasion] = useState([]);
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
 
@@ -18,7 +17,6 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
   const clearAll = () => {
     setMaxPrice(50000);
     setColor(null);
-    setOccasion([]);
     setPage(1);
   };
 
@@ -29,7 +27,6 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
   const filtered = categoryProducts.filter((p) => {
     if (p.price > maxPrice) return false;
     if (color && !p.color?.toLowerCase().includes(color.toLowerCase())) return false;
-    if (occasion.length && !occasion.includes(p.occasion)) return false;
     return true;
   });
 
@@ -100,6 +97,7 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
           margin-bottom: 1.5rem;
           padding-bottom: 0.75rem;
           border-bottom: 1px solid var(--border);
+          gap: 16px;
         }
         .filter-title {
           font-weight: 700;
@@ -205,6 +203,21 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
           border-radius: 8px;
           font-weight: 600;
           cursor: pointer;
+        }
+
+        .apply-btn {
+          margin-top: 1rem;
+          width: 100%;
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 12px;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        @media (min-width: 1025px) {
+          .apply-btn { display: none; }
         }
 
         .sl-grid {
@@ -343,24 +356,10 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
               ))}
             </div>
           </div>
+          <button className="apply-btn" onClick={() => setShowFilters(false)}>
+            Apply Filters
+          </button>
 
-          <div className="filter-group">
-            <p className="group-title">Occasion</p>
-            {[...new Set(categoryProducts.map(p => p.occasion))].map((o) => (
-              <label key={o} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  hidden
-                  checked={occasion.includes(o)}
-                  onChange={() => setOccasion(toggle(occasion, o))}
-                />
-                <div className="checkbox-custom">
-                  {occasion.includes(o) && <Check size={12} color="white" />}
-                </div>
-                <span>{o}</span>
-              </label>
-            ))}
-          </div>
         </aside>
 
         {/* MAIN CONTENT AREA */}
@@ -417,7 +416,7 @@ export default function SilkCottonListing({ cart, wishlist, onAddToCart, onToggl
           )}
         </div>
 
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
