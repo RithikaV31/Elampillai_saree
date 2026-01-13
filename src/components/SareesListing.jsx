@@ -138,6 +138,7 @@ export default function SareesListing({ cart, wishlist, onAddToCart, onToggleWis
           margin-bottom: 1.5rem;
           padding-bottom: 0.75rem;
           border-bottom: 1px solid var(--border);
+          gap: 16px;
         }
         .filter-title {
           font-weight: 700;

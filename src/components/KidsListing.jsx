@@ -140,6 +140,7 @@ export default function KidsListing({ cart, wishlist, onAddToCart, onToggleWishl
           margin-bottom: 1.5rem;
           padding-bottom: 0.75rem;
           border-bottom: 1px solid var(--border);
+          gap: 16px;
         }
         .filter-title {
           font-weight: 700;
