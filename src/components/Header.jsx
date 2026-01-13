@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, Heart, ShoppingCart, Menu, X, Home, Layers, Grid, Info, Phone, ChevronDown } from "lucide-react";
+import { Search, Heart, ShoppingCart, Menu, X, Home, Layers, Grid, Info, Phone, ChevronDown, Baby } from "lucide-react";
 
 function Header({ cartCount, wishlistCount, onSearchClick }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,8 +67,6 @@ function Header({ cartCount, wishlistCount, onSearchClick }) {
             <div className="nav-actions">
               <ul className={`nav-menu ${isMobileMenuOpen ? "active" : ""}`}>
                 <li onClick={() => go("/")}><Home size={16} /> Home</li>
-                <li onClick={() => go("/combo")}><Layers size={16} /> Combo</li>
-                <li onClick={() => go("/kids")}><span style={{ fontSize: "18px" }}>👶</span> Kids</li>
                 <li onClick={() => go("/sarees")} className="dropdown-trigger"
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}>
@@ -84,6 +82,8 @@ function Header({ cartCount, wishlistCount, onSearchClick }) {
                     ))}
                   </div>
                 </li>
+                <li onClick={() => go("/combo")}><Layers size={16} /> Combo</li>
+                <li onClick={() => go("/kids")}><Baby size={18} /> Kids</li>
                 <li onClick={() => go("/about")}><Info size={16} /> About</li>
                 <li onClick={() => go("/contact")}><Phone size={16} /> Contact</li>
               </ul>

@@ -1,9 +1,9 @@
-import { Lock, User, MapPin, ShieldCheck, Package, ArrowLeft, Trash2 } from "lucide-react";
+import { Lock, User, MapPin, ShieldCheck, Package, ArrowLeft, Trash2, Minus, Plus } from "lucide-react";
 import { useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import { Link } from "react-router-dom";
 
-export default function Checkout({ cart = [], onRemove }) {
+export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
   const receiptRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -321,6 +321,24 @@ export default function Checkout({ cart = [], onRemove }) {
                     <div className="item-details">
                       <h4>{item.name}</h4>
                       <p className="item-variant">{item.category}</p>
+                      {onUpdateQty && (
+                        <div className="qty-controls">
+                          <button
+                            className="qty-btn"
+                            disabled={item.quantity <= 1}
+                            onClick={() => onUpdateQty(item.id, -1)}
+                          >
+                            <Minus size={14} />
+                          </button>
+                          <span className="qty-val">{item.quantity}</span>
+                          <button
+                            className="qty-btn"
+                            onClick={() => onUpdateQty(item.id, 1)}
+                          >
+                            <Plus size={14} />
+                          </button>
+                        </div>
+                      )}
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
                       <div className="item-price">
@@ -639,6 +657,30 @@ export default function Checkout({ cart = [], onRemove }) {
 
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes slideIn { from{transform:translateY(50px);opacity:0} to{transform:translateY(0);opacity:1} }
+        
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f9fafb;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            width: fit-content;
+            margin-top: 8px;
+        }
+        .qty-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--text-main);
+            padding: 2px;
+        }
+        .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .qty-val { font-weight: 600; font-size: 0.9rem; min-width: 16px; text-align: center; }
+
       `}</style>
     </div>
   );
