@@ -380,6 +380,33 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
               <div className="secure-badge">
                 <ShieldCheck size={16} /> Secure checkout via WhatsApp
               </div>
+
+              {/* Receipt Preview - Restored */}
+              {receiptImage && (
+                <div className="receipt-preview-container animate-fade-in" style={{ marginTop: '20px', textAlign: 'center', backgroundColor: '#f0fdf4', padding: '15px', borderRadius: '12px', border: '1px solid #bbf7d0' }}>
+                  <div style={{ color: '#166534', marginBottom: '10px', fontSize: '0.9rem' }}>
+                    ✅ <strong>Order Text Sent!</strong><br />
+                    Tap image below to share receipt manually.
+                  </div>
+                  <img
+                    src={receiptImage}
+                    className="receipt-preview-img"
+                    alt="Receipt"
+                    onClick={() => {
+                      if (receiptBlob && navigator.share) {
+                        navigator.share({
+                          files: [new File([receiptBlob], "order_invoice.png", { type: "image/png" })],
+                          title: "Order Invoice"
+                        }).catch(console.error);
+                      } else {
+                        alert("Please Screen Capture or Long Press to Copy");
+                      }
+                    }}
+                    style={{ width: '100%', borderRadius: '8px', border: '1px solid #ddd', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                  />
+                  <p style={{ fontSize: '0.8rem', color: '#666', marginTop: '8px' }}>👆 Tap to Share Image</p>
+                </div>
+              )}
             </div>
           </div>
 
