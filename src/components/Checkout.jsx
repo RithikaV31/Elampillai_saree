@@ -63,83 +63,87 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
     return true;
   };
 
+  /* ------------------------------------------------
+     MAIN SEND LOGIC (Refactored for Stability)
+  -------------------------------------------------- */
   const sendToWhatsApp = async () => {
     if (!validateForm()) return;
-
     setIsGenerating(true);
 
-    // Hardcoded number as per request
     const whatsappNumber = "919384442434";
 
+    // Text Fallback (Caption)
+    let message = `🛍 *New Order Request*\n\n*Order Summary:*\n`;
+    cartItems.forEach((item, i) => {
+      message += `${i + 1}. ${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toLocaleString()}\n`;
+    });
+    message += `\n*Subtotal: ₹${subtotal.toLocaleString()}*\n`;
+    message += `*(Shipping charge will be calculated by the location)*\n`;
+    message += `----------------------------\n📍 *Delivery Details*\n`;
+    message += `Name: ${form.firstName} ${form.lastName}\nPhone: ${form.phone}\n`;
+    message += `Address: ${form.address}, ${form.city}, ${form.state} - ${form.pin}\n\nPlease confirm my order! ✅`;
+
     try {
-      // 1. Generate Image
+      // 1. Generate Canvas (WAIT for it)
       const canvas = await html2canvas(receiptRef.current, {
         scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff",
         logging: false,
-        allowTaint: true,
       });
 
-      canvas.toBlob(async (blob) => {
-        if (!blob) throw new Error("Failed to generate image");
+      // 2. Convert to Blob (WAIT for it)
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+      if (!blob) throw new Error("Image generation returned null");
 
-        const file = new File([blob], "order_invoice.png", { type: "image/png" });
+      let shared = false;
 
-        // 1. Try Web Share API (Mobile - Best Experience)
-        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-          try {
-            await navigator.share({
-              files: [file],
-              title: 'Order Invoice',
-              text: 'Order Receipt'
-            });
-            setIsGenerating(false);
-            return; // Stop here if share worked
-          } catch (err) {
-            console.warn("Share failed, trying clipboard...", err);
-          }
-        }
-
-        // 2. Try Clipboard (Desktop - Better than download)
+      // 3. Try Mobile Share (Image + Text)
+      const file = new File([blob], "invoice.png", { type: "image/png" });
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
-          if (navigator.clipboard && window.ClipboardItem) {
-            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-            showNotification('Invoice Copied! 📋', 'Simply Paste (Ctrl+V) in WhatsApp chat', 'success');
-
-            // Open WhatsApp after copy
-            setTimeout(() => {
-              window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
-              setIsGenerating(false);
-            }, 1000);
-            return;
-          }
+          await navigator.share({
+            files: [file],
+            title: 'Order Invoice',
+            text: message
+          });
+          shared = true;
+          setIsGenerating(false);
+          return;
         } catch (err) {
-          console.warn("Clipboard failed, falling back to download", err);
+          console.warn("Share cancelled/failed", err);
+        }
+      }
+
+      // 4. Try Desktop Clipboard (Image Only)
+      if (!shared) {
+        try {
+          if (navigator.clipboard && navigator.clipboard.write) {
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+            showNotification('✅ Invoice Copied!', 'PASTE in WhatsApp (Ctrl+V)', 'success');
+          }
+        } catch (e) {
+          console.warn("Clipboard failed", e);
+          // Fallback: Download it so they can attach it
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = `Invoice_${Date.now()}.png`;
+          link.click();
+          showNotification('Inbox Downloaded', 'Please attach the downloaded image', 'info');
         }
 
-        // 3. Fallback: Download Image (Universal Support)
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `Invoice_${Date.now()}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-
-        showNotification('Receipt Downloaded! 📥', 'Please attach the downloaded image in WhatsApp', 'info');
-
-        // Open WhatsApp after download
+        // 5. Open WhatsApp (Text) - As requested, we send text too so they have details
         setTimeout(() => {
-          window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
+          window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
           setIsGenerating(false);
         }, 1000);
+      }
 
-      }, 'image/png');
     } catch (err) {
-      console.error(err);
-      alert("Failed to generate receipt. Please try again.");
+      console.error("Image Gen Error:", err);
+      alert("Could not generate image receipt. Sending text details instead.");
+      // Fallback: Text Only
+      window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
       setIsGenerating(false);
     }
   };
