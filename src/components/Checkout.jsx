@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
   const receiptRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [receiptImage, setReceiptImage] = useState(null);
+  const [receiptBlob, setReceiptBlob] = useState(null);
 
   const [form, setForm] = useState({
     firstName: "",
