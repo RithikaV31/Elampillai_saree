@@ -113,16 +113,18 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
       }
 
       // 4. ALWAYS Open WhatsApp Chat (No matter what!)
-      // This ensures the user is redirected to the right number.
+      // Using 'wa.me' is more reliable for direct chat redirection on mobile
       setTimeout(() => {
-        window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
         setIsGenerating(false);
-      }, 1000);
+      }, 500);
 
     } catch (err) {
       console.error("Image Gen Error:", err);
       // Fallback: Just open chat with text
-      window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
       setIsGenerating(false);
     }
   };
