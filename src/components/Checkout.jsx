@@ -68,17 +68,8 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
 
     setIsGenerating(true);
 
-    let message = `🛍 *New Order Request*\n\n*Order Summary:*\n`;
-    cartItems.forEach((item, i) => {
-      message += `${i + 1}. ${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toLocaleString()}\n`;
-    });
-    message += `\n*Subtotal: ₹${total.toLocaleString()}*\n`;
-    message += `*(Shipping charge will be calculated by the location)*\n`;
-    message += `----------------------------\n📍 *Delivery Details*\n`;
-    message += `Name: ${form.firstName} ${form.lastName}\nPhone: ${form.phone}\n`;
-    message += `Address: ${form.address}, ${form.city}, ${form.state} - ${form.pin}\n\nPlease confirm my order! ✅`;
-
-    const whatsappNumber = "919384442434"; // Replace with your number
+    // Hardcoded number as per request
+    const whatsappNumber = "919384442434";
 
     try {
       // 1. Generate Image
@@ -93,57 +84,49 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
       canvas.toBlob(async (blob) => {
         if (!blob) throw new Error("Failed to generate image");
 
-        let clipboardCopied = false;
+        const file = new File([blob], "order_invoice.png", { type: "image/png" });
 
-        // 2. Try Web Share API (Mobile)
-        if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], "invoice.png", { type: "image/png" })] })) {
+        // 2. Try Web Share API (Mobile - Primary Method)
+        // This attempts to open WhatsApp directly with the image attached
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
-            const file = new File([blob], "invoice.png", { type: "image/png" });
             await navigator.share({
               files: [file],
               title: 'Order Invoice',
-              text: message
+              // Minimal caption (optional)
+              text: 'Order Receipt'
             });
             setIsGenerating(false);
-            return; // Stop here if share worked
+            return; // Stop here if share worked (User selects WhatsApp from share sheet)
           } catch (err) {
-            console.warn("Share failed, falling back", err);
+            console.warn("Share failed or dismissed, falling back", err);
           }
         }
 
-        // 3. Try Clipboard (Desktop)
-        if (navigator.clipboard && window.ClipboardItem) {
-          try {
-            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-            clipboardCopied = true;
-          } catch (e) {
-            console.warn("Clipboard failed:", e);
-          }
-        }
+        // 3. Fallback: Download & Manual Attach
+        // If share API isn't available (Desktop / HTTP), download the image
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Invoice_${Date.now()}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
 
+        // Notify user
+        showNotification('Receipt Downloaded! 📥', 'Please attach the downloaded image in WhatsApp', 'info');
+
+        // 4. Open WhatsApp Chat (NO TEXT as per request)
         setTimeout(() => {
-          // 4. Open WhatsApp
-          window.open(`https://api.whatsapp.com/send?phone=${919384442434}&text=${encodeURIComponent(message)}`, '_blank');
+          window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
           setIsGenerating(false);
+        }, 1000);
 
-          // 5. Show Notification/Fallback
-          if (clipboardCopied) {
-            showNotification('Invoice Copied!', 'Paste it in WhatsApp with Ctrl+V', 'success');
-          } else {
-            // Download fallback
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `Invoice_${Date.now()}.png`;
-            link.click();
-            URL.revokeObjectURL(url);
-            showNotification('Invoice Downloaded!', 'Attach it in WhatsApp from your Gallery', 'info');
-          }
-        }, 500);
       }, 'image/png');
     } catch (err) {
       console.error(err);
-      window.open(`https://api.whatsapp.com/send?phone=${919384442434}&text=${encodeURIComponent(message)}`, '_blank');
+      alert("Failed to generate receipt. Please try again.");
       setIsGenerating(false);
     }
   };
