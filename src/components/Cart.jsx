@@ -321,7 +321,6 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
                         In Stock
                       </p>
                     </div>
-
                     <div className="item-actions">
                       <div className="qty-controls">
                         <button
@@ -339,7 +338,6 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
                           <Plus size={16} />
                         </button>
                       </div>
-
                       <button className="remove-btn" onClick={() => onRemove(item.id)}>
                         <Trash2 size={16} /> Remove
                       </button>
@@ -348,31 +346,25 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
                 </div>
               ))}
             </div>
-
             {/* SUMMARY */}
             <aside>
               <div className="cart-summary">
                 <h3 className="summary-title">Order Summary</h3>
-
                 <div className="summary-row">
                   <span>Subtotal</span>
                   <span>₹{subtotal.toLocaleString()}</span>
                 </div>
-
                 <div className="summary-total">
                   <span>Total</span>
                   <span>₹{total.toLocaleString()}</span>
                 </div>
-
                 <button className="checkout-btn" onClick={() => navigate("/checkout")}>
                   Proceed to Checkout <ArrowRight size={20} />
                 </button>
-
                 <div className="trust-badge">
                   <ShieldCheck size={16} />
                   <span>Secure Checkout</span>
                 </div>
-
                 <div className="benefits-box">
                   <div className="benefit-item">
                     <ShieldCheck size={18} color="var(--primary)" />
@@ -389,10 +381,8 @@ export default function Cart({ cart, onUpdateQty, onRemove }) {
                     </div>
                   </div>
                 </div>
-
               </div>
             </aside>
-
           </div>
         )}
       </div>

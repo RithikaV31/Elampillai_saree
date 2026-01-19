@@ -123,7 +123,7 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
 
         setTimeout(() => {
           // 4. Open WhatsApp
-          window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+          window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
           setIsGenerating(false);
 
           // 5. Show Notification/Fallback
@@ -143,7 +143,7 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
       }, 'image/png');
     } catch (err) {
       console.error(err);
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`, '_blank');
       setIsGenerating(false);
     }
   };
