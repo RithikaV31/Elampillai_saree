@@ -86,25 +86,39 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
 
         const file = new File([blob], "order_invoice.png", { type: "image/png" });
 
-        // 2. Try Web Share API (Mobile - Primary Method)
-        // This attempts to open WhatsApp directly with the image attached
+        // 1. Try Web Share API (Mobile - Best Experience)
         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
             await navigator.share({
               files: [file],
               title: 'Order Invoice',
-              // Minimal caption (optional)
               text: 'Order Receipt'
             });
             setIsGenerating(false);
-            return; // Stop here if share worked (User selects WhatsApp from share sheet)
+            return; // Stop here if share worked
           } catch (err) {
-            console.warn("Share failed or dismissed, falling back", err);
+            console.warn("Share failed, trying clipboard...", err);
           }
         }
 
-        // 3. Fallback: Download & Manual Attach
-        // If share API isn't available (Desktop / HTTP), download the image
+        // 2. Try Clipboard (Desktop - Better than download)
+        try {
+          if (navigator.clipboard && window.ClipboardItem) {
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+            showNotification('Invoice Copied! 📋', 'Simply Paste (Ctrl+V) in WhatsApp chat', 'success');
+
+            // Open WhatsApp after copy
+            setTimeout(() => {
+              window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
+              setIsGenerating(false);
+            }, 1000);
+            return;
+          }
+        } catch (err) {
+          console.warn("Clipboard failed, falling back to download", err);
+        }
+
+        // 3. Fallback: Download Image (Universal Support)
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -114,10 +128,9 @@ export default function Checkout({ cart = [], onRemove, onUpdateQty }) {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
 
-        // Notify user
         showNotification('Receipt Downloaded! 📥', 'Please attach the downloaded image in WhatsApp', 'info');
 
-        // 4. Open WhatsApp Chat (NO TEXT as per request)
+        // Open WhatsApp after download
         setTimeout(() => {
           window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
           setIsGenerating(false);
